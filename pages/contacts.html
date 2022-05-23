@@ -5,16 +5,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="../css/styles.css">
   <title>Document</title>
 </head>
 
 <body>
 
-  <header class="start-screen__header header menu-closed">
+  <header class="header">
     <div class="container">
-      <a href="#" class="header__logo logo">
-        <img src="../../assets/images/beaver.svg" alt="beaver-logo">
+      <a href="./index.html" class="header__logo logo">
+        <img class="logo__image" src="../assets/icons/beaver.svg" alt="beaver-logo">
       </a>
       <div class="burger">
         <span class="burger__line"></span>
@@ -23,15 +23,17 @@
       </div>
       <nav class="menu">
         <ul class="menu__list">
-          <li class="menu__item menu__item_active"><a href="#" class="menu__link menu__link_main">Главная</a>
+          <li class="menu__item menu__item_active"><a href="./index.html" class="menu__link">Главная</a>
           </li>
-          <li class="menu__item"><a href="../pets/index.html" class="menu__link menu__link_main">Каталог</a></li>
-          <li class="menu__item"><a href="#help" class="menu__link menu__link_main">Доставка и оплатаr</a>
+          <li class="menu__item"><a href="./catalog.html" class="menu__link">Каталог</a></li>
+          <li class="menu__item"><a href="./delivery.html" class="menu__link">Доставка и оплата</a>
           </li>
-          <li class="menu__item"><a href="#footer" class="menu__link menu__link_main">О нас</a></li>
-          <li class="menu__item"><a href="#footer" class="menu__link menu__link_main">Контакты</a></li>
+          <li class="menu__item"><a href="./about.html" class="menu__link">О нас</a></li>
+          <li class="menu__item"><a href="#" class="menu__link menu__link_active">Контакты</a></li>
         </ul>
       </nav>
+      <a class="header__mail" href="mailto:">mail@osb.by</a>
+      <a class="header__phone" href="tel:+">+375 (29) 123 45 67</a>
     </div>
   </header>
 
@@ -57,35 +59,35 @@
   <footer class="footer" id="footer">
     <div class="container">
       <div class="footer__wrapper">
-        <div class="footer__section footer__section_osb">
-          <a href="#" class="footer__logo logo">
-            <img src="../../assets/images/beaver.svg" alt="beaver-logo">
+        <div class="footer__section">
+          <a href="./index.html" class="footer__logo logo">
+            <img class="logo__image" src="../assets/icons/beaver.svg" alt="beaver-logo">
           </a>
           <span class="copyright">© osb.by 2022</span>
         </div>
-        <div class="footer__section footer__section_catalog">
-          <a href="#" class="footer__link">Каталог товаров</a>
+        <div class="footer__section">
+          <a href="./catalog.html" class="footer__link">Каталог товаров</a>
           <ul class="goods">
-            <li class="goods__item"><a href="" class="goods__link">Фанера</a></li>
-            <li class="goods__item"><a href="" class="goods__link">ДСП</a></li>
-            <li class="goods__item"><a href="" class="goods__link">ДВП</a></li>
-            <li class="goods__item"><a href="" class="goods__link">OSB</a></li>
+            <li class="goods__item"><a href="./catalog.html" class="footer__link">Фанера</a></li>
+            <li class="goods__item"><a href="./catalog.html" class="footer__link">ДСП</a></li>
+            <li class="goods__item"><a href="./catalog.html" class="footer__link">ДВП</a></li>
+            <li class="goods__item"><a href="./catalog.html" class="footer__link">OSB</a></li>
           </ul>
         </div>
-        <div class="footer__section footer__section_menu">
+        <div class="footer__section">
           <ul class="footer__menu">
-            <li class="footer__menu-item"><a href="" class="footer__menu-link">Как заказать</a></li>
-            <li class="footer__menu-item"><a href="" class="footer__menu-link">Оплата</a></li>
-            <li class="footer__menu-item"><a href="" class="footer__menu-link">Доставка</a></li>
-            <li class="footer__menu-item"><a href="" class="footer__menu-link">Реквизиты компании</a></li>
-            <li class="footer__menu-item"><a href="" class="footer__menu-link">Правовая информация</a></li>
+            <li class="footer__menu-item"><a href="./delivery.html" class="footer__link">Как заказать</a></li>
+            <li class="footer__menu-item"><a href="./delivery.html" class="footer__link">Оплата</a></li>
+            <li class="footer__menu-item"><a href="./delivery.html" class="footer__link">Доставка</a></li>
+            <li class="footer__menu-item"><a href="./about.html" class="footer__link">Реквизиты компании</a></li>
+            <li class="footer__menu-item"><a href="./about.html" class="footer__link">Правовая информация</a></li>
           </ul>
         </div>
-        <div class="footer__section footer__section_contacts">
-          <a href="#" class="footer__link">Контакты</a>
-          <a href="" class="contacts-link">Наш склад в Минске</a>
-          <a href="" class="contacts-link">+375 (29) 123 45 67</a>
-          <a href="" class="contacts-link">mail@osb.by</a>
+        <div class="footer__section">
+          <a href="./contacts.html" class="footer__link contacts-link contacts-link_main">Контакты</a>
+          <a href="" class="footer__link contacts-link contacts-link_map">Наш склад в Минске</a>
+          <a href="" class="footer__link contacts-link contacts-link_phone">+375 (29) 123 45 67</a>
+          <a href="" class="footer__link contacts-link contacts-link_mail">mail@osb.by</a>
         </div>
       </div>
     </div>

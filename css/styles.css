@@ -1,4 +1,4 @@
-.section-title, .card__price, .start-screen__title {
+.section-title, .card__price, .start-screen__title, .catalog__title {
   font-family: "Montserrat", sans-serif;
   font-weight: 900;
 }
@@ -13,7 +13,7 @@
   font-weight: 500;
 }
 
-.header__mail, .header__phone, .menu__link, .button_primary, .card__spec, .footer__section .copyright, .footer__link, .advantages__text, .questions__form input {
+.header__mail, .header__phone, .menu__link, .button_primary, .card__spec, .footer__section .copyright, .footer__link, .breadcrumbs__link, .advantages__text, .questions__form input {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;
 }
@@ -279,6 +279,10 @@ img {
           align-items: center;
 }
 
+.header__logo {
+  margin-right: 30px;
+}
+
 .header__mail {
   position: relative;
   display: block;
@@ -323,7 +327,7 @@ img {
 }
 
 .logo__image {
-  width: 70px;
+  width: 120px;
 }
 
 .menu {
@@ -354,6 +358,19 @@ img {
   text-decoration: none;
 }
 
+.menu__link_active {
+  color: #f3c650;
+}
+
+.menu__link_active:hover {
+  color: #ffffff;
+}
+
+.menu__link:hover {
+  padding-bottom: 4px;
+  border-bottom: 1px solid #ffffff;
+}
+
 .button {
   display: inline-block;
   padding: 12px;
@@ -374,6 +391,7 @@ img {
 }
 
 .card {
+  width: 295px;
   border-radius: 5px;
   background-color: #ffffff;
 }
@@ -446,6 +464,11 @@ img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.footer__logo {
+  display: block;
+  margin-bottom: 45px;
 }
 
 .footer__section .copyright {
@@ -534,6 +557,16 @@ img {
   width: 16px;
   height: 16px;
   background: url(../assets/icons/mail.svg) no-repeat center;
+}
+
+.breadcrumbs {
+  padding-top: 20px;
+  padding-bottom: 40px;
+  background-color: #f4f4f4;
+}
+
+.breadcrumbs__link {
+  color: #8c8c8c;
 }
 
 .container {
@@ -706,5 +739,27 @@ img {
 
 .questions__form input:last-of-type {
   margin-bottom: 30px;
+}
+
+.catalog {
+  background-color: #f4f4f4;
+}
+
+.catalog__title {
+  margin: 0;
+  margin-bottom: 40px;
+  color: #535353;
+}
+
+.catalog__button-block {
+  margin-bottom: 40px;
+}
+
+.catalog__content {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  row-gap: 20px;
 }
 /*# sourceMappingURL=styles.css.map */
