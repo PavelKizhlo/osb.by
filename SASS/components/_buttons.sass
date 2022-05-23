@@ -1,0 +1,15 @@
+.button
+	display: inline-block
+	padding: 12px
+	border: none
+	border-radius: 5px
+	text-decoration: none
+	text-align: center
+	&_primary
+		@extend %regular
+		background-color: $green
+		color: $light
+	&_secondary
+		@extend %bold
+		background-color: $orange
+		color: $dark

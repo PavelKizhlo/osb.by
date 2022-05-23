@@ -1,0 +1,43 @@
+.header
+	padding: 10px 0
+	background-color: $green
+	.container
+		display: flex
+		align-items: center
+	&__mail
+		@extend %regular
+		position: relative
+		display: block
+		margin-right: 100px
+		padding: 10px
+		padding-left: 30px
+		text-decoration: none
+		color: $light
+		&::before
+			position: absolute
+			left: 7px
+			top: 13px
+			content: ''
+			display: block
+			width: 16px
+			height: 16px
+			background: url(../assets/icons/mail.svg) no-repeat center
+	&__phone
+		@extend %regular
+		position: relative
+		display: block
+		padding: 10px 30px
+		padding-left: 40px
+		border: 1px solid $light
+		border-radius: 5px
+		text-decoration: none
+		color: $light
+		&::before
+			position: absolute
+			left: 17px
+			top: 12px
+			content: ''
+			display: block
+			width: 16px
+			height: 16px
+			background: url(../assets/icons/phone.svg) no-repeat center

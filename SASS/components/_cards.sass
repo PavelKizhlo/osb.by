@@ -1,0 +1,47 @@
+.card
+	border-radius: 5px
+	background-color: $light
+	&__image
+		width: 100%
+		border-radius: 5px
+		margin-bottom: 10px
+	&__title
+		@extend %bold
+		margin: 0
+		margin-bottom: 10px
+		padding-left: 15px
+		color: $dark
+	&__spec
+		@extend %regular
+		margin: 0
+		margin-bottom: 15px
+		padding: 0
+		padding-left: 20px
+		padding-right: 15px
+		list-style: none
+		color: $dark-m
+		&-item
+			position: relative
+			margin-bottom: 5px
+			font-size: 0.8rem
+			&:last-of-type
+				margin-bottom: 0
+			&::before
+				position: absolute
+				left: -10px
+				top: 5px
+				content: ''
+				display: block
+				width: 5px
+				height: 5px
+				border-radius: 100%
+				background-color: $orange
+
+	&__price
+		@extend %extra-bold
+		display: block
+		margin-bottom: 15px
+		padding-left: 15px
+		color: $dark
+	.button
+		width: 100%
