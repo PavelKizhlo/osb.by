@@ -7,9 +7,20 @@
 		color: $dark
 	&__button-block
 		margin-bottom: 40px
+		.button
+			margin-right: 10px
 	&__wrapper
-
+		display: flex
+		justify-content: space-between
+		padding-bottom: 100px
+	&__filter
+		align-self: flex-start
 	&__content
 		display: grid
 		grid-template-columns: repeat(3, 1fr)
+		column-gap: 40px
 		row-gap: 20px
+
+.show-more
+	grid-column: 2/3
+	margin-top: 20px

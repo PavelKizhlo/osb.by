@@ -2,6 +2,27 @@
 	padding-top: 20px
 	padding-bottom: 40px
 	background-color: $page
+	.container
+		display: flex
 	&__link
 		@extend  %regular
+		position: relative
+		display: block
+		margin-right: 20px
+		padding: 5px
+		text-decoration: none
 		color: $dark-m
+		&::after
+			position: absolute
+			right: -14px
+			top: 12px
+			content: ''
+			display: block
+			width: 8px
+			height: 8px
+			border-radius: 100%
+			background-color: $orange
+		&:last-child
+			margin-right: 0
+			&::after
+				display: none

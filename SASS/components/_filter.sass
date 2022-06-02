@@ -1,0 +1,137 @@
+.filter
+	width: 270px
+	padding: 15px
+	border: 1px solid $dark-l
+	background-color: $light
+	&__field
+		margin: 0
+		padding: 0
+		border: none
+		&_material
+			margin-bottom: 20px
+			.filter__item
+				margin-bottom: 10px
+		&_thickness
+			.filter__item
+				height: 33px
+	&__title
+		@extend %bold
+		position: relative
+		font-size: 1.1rem
+		color: $dark
+		&::after
+			position: absolute
+			content: ''
+			display: block
+			width: 25px
+			height: 25px
+		&_material
+			margin-bottom: 10px
+			&::after
+				right: -115px
+				top: 0px
+				background: url(../assets/icons/filter.svg) no-repeat center / contain
+		&_thickness
+			margin-bottom: 20px
+			&::after
+				right: -120px
+				top: 0px
+				background: url(../assets/icons/thickness.svg) no-repeat center / contain
+	&__item
+		input[type="checkbox"]
+			display: none
+		input[type="radio"]
+			display: none
+	&__label
+		@extend %regular
+		position: relative
+		margin-bottom: 10px
+		padding: 0
+		font-size: 1.1rem
+		color: $dark
+		cursor: pointer
+		transition: all 0.3s ease
+		&:hover
+			color: $orange
+		&_material
+			padding-left: 30px
+			&::before
+				position: absolute
+				left: 0px
+				top: 0px
+				content: ''
+				display: block
+				width: 20px
+				height: 20px
+				border: 1px solid $dark
+				border-radius: 2px
+			&::after
+				position: absolute
+				left: 3px
+				top: 3px
+				content: ''
+				display: none
+				width: 16px
+				height: 16px
+				background: url(../assets/icons/check.svg) no-repeat center
+		&_thickness
+			display: block
+			height: 100%
+			margin-bottom: 0
+			border: 1px solid $dark
+			border-radius: 2px
+			text-align: center
+			line-height: 33px
+	&__group
+		display: grid
+		grid-template-columns: repeat(4, 1fr)
+		column-gap: 10px
+		row-gap: 10px
+
+#all-materials:checked ~ label
+	&::after
+		display: block
+
+#fanera:checked ~ label
+	&::after
+		display: block
+
+#dvp:checked ~ label
+	&::after
+		display: block
+
+#dsp:checked ~ label
+	&::after
+		display: block
+
+#osb:checked ~ label
+	&::after
+		display: block
+
+#thickness15:checked ~ label
+	background-color: $orange
+
+#thickness20:checked ~ label
+	background-color: $orange
+
+#thickness25:checked ~ label
+	background-color: $orange
+
+#thickness30:checked ~ label
+	background-color: $orange
+
+#thickness35:checked ~ label
+	background-color: $orange
+
+#thickness40:checked ~ label
+	background-color: $orange
+
+#thickness45:checked ~ label
+	background-color: $orange
+
+#thickness50:checked ~ label
+	background-color: $orange
+
+input[type="radio"]:checked ~ label
+	&:hover
+		color: $dark
