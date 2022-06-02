@@ -68,6 +68,11 @@
 		margin: 0
 		margin-bottom: 20px
 		color: $dark
+		cursor: pointer
+		transition: all 0.3s ease
+		&:hover
+			padding-left: 30px
+			color: $orange
 		&::after
 			position: absolute
 			right: 0
@@ -77,12 +82,45 @@
 			width: 15px
 			height: 15px
 			background: url(../assets/icons/plus.svg) no-repeat center
+		&::before
+			position: absolute
+			left: -60px
+			top: -10px
+			content: ''
+			display: block
+			width: 40px
+			height: 40px
 	&__text
 		@extend %regular
 		margin: 0
 		margin-bottom: 20px
 		text-align: justify
 		color: $dark-m
+	&__link
+		text-decoration: none
+		color: $orange
+		&:hover
+			text-decoration-line: underline
+
+.sales
+	&::before
+		background: url(../assets/icons/cart.svg) no-repeat center / contain
+
+.delivery
+	&::before
+		background: url(../assets/icons/delivery.svg) no-repeat center / contain
+
+.saw-cut
+	&::before
+		background: url(../assets/icons/saw.svg) no-repeat center / contain
+
+.credit
+	&::before
+		background: url(../assets/icons/credit-card.svg) no-repeat center / contain
+
+.reviews
+	&::before
+		background: url(../assets/icons/good.svg) no-repeat center / contain
 
 .our-firm
 	padding-top: 40px
@@ -110,6 +148,10 @@
 			width: 133px
 			height: 164px
 			background: url(../assets/icons/question.svg) no-repeat
+			transition: all 0.3s ease
+		&:hover
+			&::before
+				transform: scale(1.04) rotate(-5deg)
 		input
 			@extend %regular
 			display: block

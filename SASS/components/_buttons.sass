@@ -5,11 +5,16 @@
 	border-radius: 5px
 	text-decoration: none
 	text-align: center
+	transition: all 0.3s ease
 	&_primary
 		@extend %regular
 		background-color: $green
 		color: $light
+		&:hover
+			transform: scale(1.05)
 	&_secondary
 		@extend %bold
 		background-color: $orange
 		color: $dark
+		&:hover
+			transform: scale(1.05)

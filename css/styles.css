@@ -8,7 +8,7 @@
   font-weight: 800;
 }
 
-.footer__section .goods .footer__link, .start-screen__text {
+.start-screen__text {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
 }
@@ -215,6 +215,20 @@ img {
   display: block;
 }
 
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  -webkit-clip-path: inset(100%);
+          clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
 @font-face {
   font-family: "Montserrat";
   src: local("Montserrat"), url(../assets/fonts/Montserrat-Regular.woff2) format("woff2"), url(../assets/fonts/Montserrat-Regular.woff) format("woff");
@@ -291,6 +305,12 @@ img {
   padding-left: 30px;
   text-decoration: none;
   color: #ffffff;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.header__mail:hover {
+  color: #f3c650;
 }
 
 .header__mail::before {
@@ -313,6 +333,13 @@ img {
   border-radius: 5px;
   text-decoration: none;
   color: #ffffff;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.header__phone:hover {
+  border-color: #f3c650;
+  color: #f3c650;
 }
 
 .header__phone::before {
@@ -326,8 +353,18 @@ img {
   background: url(../assets/icons/phone.svg) no-repeat center;
 }
 
+.logo {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
 .logo__image {
   width: 120px;
+}
+
+.logo:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .menu {
@@ -353,9 +390,12 @@ img {
 
 .menu__link {
   display: block;
-  padding: 5px;
+  padding: 4px;
+  border-bottom: 1px solid transparent;
   color: #ffffff;
   text-decoration: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .menu__link_active {
@@ -367,7 +407,6 @@ img {
 }
 
 .menu__link:hover {
-  padding-bottom: 4px;
   border-bottom: 1px solid #ffffff;
 }
 
@@ -378,6 +417,8 @@ img {
   border-radius: 5px;
   text-decoration: none;
   text-align: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .button_primary {
@@ -385,15 +426,33 @@ img {
   color: #ffffff;
 }
 
+.button_primary:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
 .button_secondary {
   background-color: #f3c650;
   color: #535353;
+}
+
+.button_secondary:hover {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
 }
 
 .card {
   width: 295px;
   border-radius: 5px;
   background-color: #ffffff;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover {
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
 }
 
 .card__image {
@@ -452,6 +511,11 @@ img {
   width: 100%;
 }
 
+.card .button:hover {
+  -webkit-transform: none;
+          transform: none;
+}
+
 .footer {
   padding: 30px 0;
   background-color: #316419;
@@ -489,8 +553,21 @@ img {
   margin-bottom: 0;
 }
 
-.footer__section .goods .footer__link {
-  color: #f3c650;
+.footer__section .goods__item .footer__link {
+  position: relative;
+  padding-left: 20px;
+}
+
+.footer__section .goods__item .footer__link::before {
+  position: absolute;
+  left: 5px;
+  top: 9px;
+  content: '';
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+  background-color: #f3c650;
 }
 
 .footer__menu {
@@ -513,6 +590,12 @@ img {
   font-size: 0.8rem;
   text-decoration: none;
   color: #ffffff;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.footer__link:hover {
+  color: #f3c650;
 }
 
 .footer .contacts-link {
@@ -666,6 +749,14 @@ img {
   margin: 0;
   margin-bottom: 20px;
   color: #535353;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.advantages__subtitle:hover {
+  padding-left: 30px;
+  color: #f3c650;
 }
 
 .advantages__subtitle::after {
@@ -679,11 +770,51 @@ img {
   background: url(../assets/icons/plus.svg) no-repeat center;
 }
 
+.advantages__subtitle::before {
+  position: absolute;
+  left: -60px;
+  top: -10px;
+  content: '';
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
 .advantages__text {
   margin: 0;
   margin-bottom: 20px;
   text-align: justify;
   color: #8c8c8c;
+}
+
+.advantages__link {
+  text-decoration: none;
+  color: #f3c650;
+}
+
+.advantages__link:hover {
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+}
+
+.sales::before {
+  background: url(../assets/icons/cart.svg) no-repeat center/contain;
+}
+
+.delivery::before {
+  background: url(../assets/icons/delivery.svg) no-repeat center/contain;
+}
+
+.saw-cut::before {
+  background: url(../assets/icons/saw.svg) no-repeat center/contain;
+}
+
+.credit::before {
+  background: url(../assets/icons/credit-card.svg) no-repeat center/contain;
+}
+
+.reviews::before {
+  background: url(../assets/icons/good.svg) no-repeat center/contain;
 }
 
 .our-firm {
@@ -725,6 +856,13 @@ img {
   width: 133px;
   height: 164px;
   background: url(../assets/icons/question.svg) no-repeat;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.questions__form:hover::before {
+  -webkit-transform: scale(1.04) rotate(-5deg);
+          transform: scale(1.04) rotate(-5deg);
 }
 
 .questions__form input {

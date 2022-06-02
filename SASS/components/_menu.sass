@@ -12,13 +12,14 @@
 	&__link
 		@extend %regular
 		display: block
-		padding: 5px
+		padding: 4px
+		border-bottom: 1px solid transparent
 		color: $light
 		text-decoration: none
+		transition: all 0.3s ease
 		&_active
 			color: $orange
 			&:hover
 				color: $light
 		&:hover
-			padding-bottom: 4px
 			border-bottom: 1px solid $light

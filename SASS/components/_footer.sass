@@ -19,9 +19,19 @@
 				margin-bottom: 5px
 				&:last-of-type
 					margin-bottom: 0
-			.footer__link
-				@extend %medium
-				color: $orange
+				.footer__link
+					position: relative
+					padding-left: 20px
+					&::before
+						position: absolute
+						left: 5px
+						top: 9px
+						content: ''
+						display: block
+						width: 8px
+						height: 8px
+						border-radius: 100%
+						background-color: $orange
 	&__menu
 		margin: 0
 		padding: 0
@@ -37,6 +47,9 @@
 		font-size: 0.8rem
 		text-decoration: none
 		color: $light
+		transition: all 0.3s ease
+		&:hover
+					color: $orange
 	.contacts-link
 		position: relative
 		margin-bottom: 10px

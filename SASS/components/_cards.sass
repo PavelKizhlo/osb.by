@@ -2,6 +2,10 @@
 	width: 295px
 	border-radius: 5px
 	background-color: $light
+	transition: all 0.3s ease
+	cursor: pointer
+	&:hover
+			transform: scale(1.03)
 	&__image
 		width: 100%
 		border-radius: 5px
@@ -37,7 +41,6 @@
 				height: 5px
 				border-radius: 100%
 				background-color: $orange
-
 	&__price
 		@extend %extra-bold
 		display: block
@@ -46,3 +49,5 @@
 		color: $dark
 	.button
 		width: 100%
+		&:hover
+			transform: none
