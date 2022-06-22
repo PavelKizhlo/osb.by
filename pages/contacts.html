@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../assets/favicon.ico">
   <title>Document</title>
 </head>
 
@@ -14,7 +15,7 @@
   <header class="page__header header">
     <div class="container">
       <a href="./index.html" class="header__logo logo">
-        <img class="logo__image" src="../assets/icons/beaver.svg" alt="beaver-logo">
+        <img class="logo__image" src="../assets/icons/beaver.svg" alt="Логотип компании osb.by">
       </a>
       <div class="burger">
         <span class="burger__line"></span>
@@ -33,7 +34,7 @@
         </ul>
       </nav>
       <a class="header__mail" href="mailto:">mail@osb.by</a>
-      <a class="header__phone" href="tel:+">+375 (29) 651 00 25</a>
+      <a class="header__phone" href="tel:+375296510025">+375 (29) 651 00 25</a>
     </div>
   </header>
 
@@ -47,13 +48,22 @@
     <section class="contacts">
       <div class="container">
         <h1 class="contacts__title">Контакты</h1>
-        <div class="contacts__button-block">
-          <button class="button button_primary">Адрес склада</button>
-          <button class="button button_primary">Наш офис</button>
-        </div>
         <div class="contacts__content">
-          <div class="contacts__map"></div>
-          <div class="contacts__tel"></div>
+          <div class="contacts__map">
+            <h2 class="contacts__subtitle">Адрес склада:</h2>
+            <address class="contacts__adress">г.Минск ул.Скорины д.15</address>
+            <div class="map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.634878248172!2d27.66799576866786!3d53.92404679850617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbce95ec432401%3A0x3edfe53020532dfd!2z0YPQuy4g0KTRgNCw0L3RhtC40YHQutCwINCh0LrQvtGA0LjQvdGLIDE1LCDQnNC40L3RgdC6IDIyMDE0MQ!5e0!3m2!1sru!2sby!4v1654272057959!5m2!1sru!2sby"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+          <div class="contacts__tel">
+            <h2 class="contacts__subtitle">С нами можно связаться:</h2>
+            <a href="tel:+375296510025" class="contacts-link contacts-link_phone">+375 (29) 651 00 25</a>
+            <a href="" class="contacts-link contacts-link_mail">mail@osb.by</a>
+          </div>
         </div>
       </div>
     </section>
@@ -64,7 +74,7 @@
       <div class="footer__wrapper">
         <div class="footer__section">
           <a href="./index.html" class="footer__logo logo">
-            <img class="logo__image" src="../assets/icons/beaver.svg" alt="beaver-logo">
+            <img class="logo__image" src="../assets/icons/beaver.svg" alt="Логотип компании osb.by">
           </a>
           <span class="copyright">© osb.by 2022</span>
         </div>
@@ -82,14 +92,14 @@
             <li class="footer__menu-item"><a href="./delivery.html" class="footer__link">Как заказать</a></li>
             <li class="footer__menu-item"><a href="./delivery.html" class="footer__link">Оплата</a></li>
             <li class="footer__menu-item"><a href="./delivery.html" class="footer__link">Доставка</a></li>
-            <li class="footer__menu-item"><a href="./about.html" class="footer__link">Реквизиты компании</a></li>
-            <li class="footer__menu-item"><a href="./about.html" class="footer__link">Правовая информация</a></li>
+            <li class="footer__menu-item"><a href="./about.html" class="footer__link">О компании</a></li>
+            <li class="footer__menu-item"><a href="#" class="footer__link">Как нас найти</a></li>
           </ul>
         </div>
         <div class="footer__section">
           <a href="./contacts.html" class="footer__link contacts-link contacts-link_main">Контакты</a>
           <a href="" class="footer__link contacts-link contacts-link_map">Наш склад в Минске</a>
-          <a href="" class="footer__link contacts-link contacts-link_phone">+375 (29) 651 00 25</a>
+          <a href="tel:+375296510025" class="footer__link contacts-link contacts-link_phone">+375 (29) 651 00 25</a>
           <a href="" class="footer__link contacts-link contacts-link_mail">mail@osb.by</a>
         </div>
       </div>
@@ -99,7 +109,7 @@
   <div class="popup"></div>
   <div class="popup-fade"></div>
 
-  <script src="script.js"></script>
+  <script src="../JS/index.js"></script>
 
 </body>
 

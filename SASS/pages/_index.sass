@@ -51,7 +51,16 @@
 		padding-left: 70px
 		list-style: none
 	&__item
-		&:after
+		&_opend
+			.advantages__subtitle
+				&::after
+					transform: rotate(135deg)
+					transition: all 0.3s ease
+		&_closed
+			.advantages__subtitle
+				&::after
+					transition: all 0.3s ease
+		&::after
 			content: ''
 			display: block
 			margin-bottom: 20px
@@ -128,7 +137,6 @@
 	&__title
 
 .questions
-	padding-bottom: 30px
 	background-color: $page
 	&__title
 		margin-bottom: 60px

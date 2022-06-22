@@ -1,4 +1,5 @@
 .delivery
+	height: 100%
 	background-color: $page
 	&__title
 		@extend %extra-bold
@@ -9,31 +10,58 @@
 		margin-bottom: 40px
 		.button
 			margin-right: 10px
+	&__subtitle
+		@extend %extra-bold
+		margin: 0
+		margin-bottom: 40px
+		color: $dark
+	&__text
+		@extend %regular
+		margin: 0
+		margin-bottom: 60px
+		text-align: justify
+		text-indent: 30px
+		color: $dark
 
-//   &__minsk
-
-
-//   &__text
-
-
-// .container
-
-// .button
-//   &_primary
-
-
-// .minsk-title
-
-// .steps
-
-//   &__item
-
-
-//   &__
-
-
-//     &_round
-
-//   &__text
-
-
+.steps
+	display: flex
+	justify-content: space-between
+	&__item
+		position: relative
+		display: flex
+		flex-direction: column
+		align-items: center
+		width: 30%
+		&::after
+			position: absolute
+			right: -192px
+			top: 50px
+			content: ''
+			display: block
+			width: 320px
+			height: 0px
+			border: 1px dashed $dark-m
+		&:last-of-type
+			&::after
+				display: none
+	&__round
+		@extend %regular
+		display: flex
+		justify-content: center
+		align-items: center
+		width: 100px
+		height: 100px
+		border: 1px solid $orange
+		border-radius: 100%
+		margin-bottom: 40px
+		background-color: $light
+		box-shadow: 0px 8px 10px $shadow
+		font-size: 2.5rem
+		color: $dark-m
+	&__text
+		@extend %regular
+		margin: 0
+		text-align: center
+		color: $dark
+	&__link
+		color: $orange

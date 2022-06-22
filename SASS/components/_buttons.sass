@@ -1,20 +1,23 @@
 .button
 	display: inline-block
-	padding: 12px
+	padding: 11px
 	border: none
 	border-radius: 5px
 	text-decoration: none
 	text-align: center
 	transition: all 0.3s ease
+	&:hover
+		transform: scale(1.05)
 	&_primary
 		@extend %regular
 		background-color: $green
+		border: 1px solid $green
 		color: $light
-		&:hover
-			transform: scale(1.05)
 	&_secondary
 		@extend %bold
 		background-color: $orange
 		color: $dark
-		&:hover
-			transform: scale(1.05)
+	&_inactive
+		@extend %regular
+		background-color: $light
+		border: 1px solid $dark

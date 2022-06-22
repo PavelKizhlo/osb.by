@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/styles.css">
+  <link rel="icon" href="../assets/favicon.ico">
   <title>Document</title>
 </head>
 
@@ -14,7 +15,7 @@
   <header class="page__header header">
     <div class="container">
       <a href="./index.html" class="header__logo logo">
-        <img class="logo__image" src="../assets/icons/beaver.svg" alt="beaver-logo">
+        <img class="logo__image" src="../assets/icons/beaver.svg" alt="Логотип компании osb.by">
       </a>
       <div class="burger">
         <span class="burger__line"></span>
@@ -33,7 +34,7 @@
         </ul>
       </nav>
       <a class="header__mail" href="mailto:">mail@osb.by</a>
-      <a class="header__phone" href="tel:+">+375 (29) 651 00 25</a>
+      <a class="header__phone" href="tel:+375296510025">+375 (29) 651 00 25</a>
     </div>
   </header>
 
@@ -49,77 +50,77 @@
         <h1 class="catalog__title">Каталог</h1>
         <div class="catalog__button-block">
           <button class="button button_primary">Все товары</button>
-          <button class="button button_primary">Фанера</button>
-          <button class="button button_primary">Древесно-стружечные плиты</button>
-          <button class="button button_primary">Древесно-волокнистые плиты</button>
-          <button class="button button_primary">OSB</button>
+          <button class="button button_inactive">Фанера</button>
+          <button class="button button_inactive">Древесно-стружечные плиты</button>
+          <button class="button button_inactive">Древесно-волокнистые плиты</button>
+          <button class="button button_inactive">OSB</button>
         </div>
         <div class="catalog__wrapper">
           <form class="catalog__filter filter">
             <fieldset class="filter__field filter__field_material">
               <legend class="filter__title filter__title_material">Материал:</legend>
               <div class="filter__item">
-                <input type="checkbox" id="all-materials" name="all-materials">
-                <label class="filter__label filter__label_material" for="all-materials">Все товары</label><br/>
+                <input type="checkbox" id="all-materials" name="all-materials" checked>
+                <label class="filter__label filter__label_material" for="all-materials">Все товары</label><br />
               </div>
 
               <div class="filter__item">
                 <input type="checkbox" id="fanera" name="fanera" checked>
-                <label class="filter__label filter__label_material" for="fanera">Фанера</label><br/>
+                <label class="filter__label filter__label_material" for="fanera">Фанера</label><br />
               </div>
-          
+
               <div class="filter__item">
-                <input type="checkbox" id="dvp" name="dvp">
-                <label class="filter__label filter__label_material" for="dvp">ДВП</label><br/>
+                <input type="checkbox" id="dvp" name="dvp" checked>
+                <label class="filter__label filter__label_material" for="dvp">ДВП</label><br />
               </div>
-          
+
               <div class="filter__item">
-                <input type="checkbox" id="dsp" name="dsp">
+                <input type="checkbox" id="dsp" name="dsp" checked>
                 <label class="filter__label filter__label_material" for="dsp">ДСП</label>
               </div>
 
               <div class="filter__item">
-                <input type="checkbox" id="osb" name="osb">
+                <input type="checkbox" id="osb" name="osb" checked>
                 <label class="filter__label filter__label_material" for="osb">OSB</label>
               </div>
-          </fieldset>
-          <fieldset class="filter__field filter__field_thickness">
-            <legend class="filter__title filter__title_thickness">Толщина:</legend>
-            <div class="filter__group">
-              <div class="filter__item">
-                <input type="radio" id="thickness15" name="thickness" checked>
-                <label class="filter__label filter__label_thickness" for="thickness15">15</label><br/>
+            </fieldset>
+            <fieldset class="filter__field filter__field_thickness">
+              <legend class="filter__title filter__title_thickness">Толщина:</legend>
+              <div class="filter__group">
+                <div class="filter__item">
+                  <input type="radio" id="thickness15" name="thickness" checked>
+                  <label class="filter__label filter__label_thickness" for="thickness15">15</label><br />
+                </div>
+                <div class="filter__item">
+                  <input type="radio" id="thickness20" name="thickness">
+                  <label class="filter__label filter__label_thickness" for="thickness20">20</label><br />
+                </div>
+                <div class="filter__item">
+                  <input type="radio" id="thickness25" name="thickness">
+                  <label class="filter__label filter__label_thickness" for="thickness25">25</label>
+                </div>
+                <div class="filter__item">
+                  <input type="radio" id="thickness30" name="thickness">
+                  <label class="filter__label filter__label_thickness" for="thickness30">30</label>
+                </div>
+                <div class="filter__item">
+                  <input type="radio" id="thickness35" name="thickness">
+                  <label class="filter__label filter__label_thickness" for="thickness35">35</label><br />
+                </div>
+                <div class="filter__item">
+                  <input type="radio" id="thickness40" name="thickness">
+                  <label class="filter__label filter__label_thickness" for="thickness40">40</label><br />
+                </div>
+                <div class="filter__item">
+                  <input type="radio" id="thickness45" name="thickness">
+                  <label class="filter__label filter__label_thickness" for="thickness45">45</label>
+                </div>
+                <div class="filter__item">
+                  <input type="radio" id="thickness50" name="thickness">
+                  <label class="filter__label filter__label_thickness" for="thickness50">50</label>
+                </div>
               </div>
-              <div class="filter__item">
-                <input type="radio" id="thickness20" name="thickness">
-                <label class="filter__label filter__label_thickness" for="thickness20">20</label><br/>
-              </div>
-              <div class="filter__item">
-                <input type="radio" id="thickness25" name="thickness">
-                <label class="filter__label filter__label_thickness" for="thickness25">25</label>
-              </div>
-              <div class="filter__item">
-                <input type="radio" id="thickness30" name="thickness">
-                <label class="filter__label filter__label_thickness" for="thickness30">30</label>
-              </div>
-              <div class="filter__item">
-                <input type="radio" id="thickness35" name="thickness">
-                <label class="filter__label filter__label_thickness" for="thickness35">35</label><br/>
-              </div>
-              <div class="filter__item">
-                <input type="radio" id="thickness40" name="thickness">
-                <label class="filter__label filter__label_thickness" for="thickness40">40</label><br/>
-              </div>
-              <div class="filter__item">
-                <input type="radio" id="thickness45" name="thickness">
-                <label class="filter__label filter__label_thickness" for="thickness45">45</label>
-              </div>
-              <div class="filter__item">
-                <input type="radio" id="thickness50" name="thickness">
-                <label class="filter__label filter__label_thickness" for="thickness50">50</label>
-              </div>
-            </div>
-        </fieldset>
+            </fieldset>
           </form>
           <div class="catalog__content">
             <div class="card">
@@ -233,7 +234,7 @@
       <div class="footer__wrapper">
         <div class="footer__section">
           <a href="./index.html" class="footer__logo logo">
-            <img class="logo__image" src="../assets/icons/beaver.svg" alt="beaver-logo">
+            <img class="logo__image" src="../assets/icons/beaver.svg" alt="Логотип компании osb.by">
           </a>
           <span class="copyright">© osb.by 2022</span>
         </div>
@@ -251,14 +252,14 @@
             <li class="footer__menu-item"><a href="./delivery.html" class="footer__link">Как заказать</a></li>
             <li class="footer__menu-item"><a href="./delivery.html" class="footer__link">Оплата</a></li>
             <li class="footer__menu-item"><a href="./delivery.html" class="footer__link">Доставка</a></li>
-            <li class="footer__menu-item"><a href="./about.html" class="footer__link">Реквизиты компании</a></li>
-            <li class="footer__menu-item"><a href="./about.html" class="footer__link">Правовая информация</a></li>
+            <li class="footer__menu-item"><a href="./about.html" class="footer__link">О компании</a></li>
+            <li class="footer__menu-item"><a href="./contacts.html" class="footer__link">Как нас найти</a></li>
           </ul>
         </div>
         <div class="footer__section">
           <a href="./contacts.html" class="footer__link contacts-link contacts-link_main">Контакты</a>
           <a href="" class="footer__link contacts-link contacts-link_map">Наш склад в Минске</a>
-          <a href="" class="footer__link contacts-link contacts-link_phone">+375 (29) 651 00 25</a>
+          <a href="tel:+375296510025" class="footer__link contacts-link contacts-link_phone">+375 (29) 651 00 25</a>
           <a href="" class="footer__link contacts-link contacts-link_mail">mail@osb.by</a>
         </div>
       </div>
@@ -268,7 +269,7 @@
   <div class="popup"></div>
   <div class="popup-fade"></div>
 
-  <script src="script.js"></script>
+  <script src="../JS/catalog.js"></script>
 
 </body>
 

@@ -1,7 +1,26 @@
 .contacts
+  height: 100%
   background-color: $page
   &__title
     @extend %extra-bold
     margin: 0
     margin-bottom: 40px
     color: $dark
+  &__content
+    display: flex
+  &__map
+    margin-right: 150px
+  &__subtitle
+    @extend %extra-bold
+    margin: 0
+    margin-bottom: 20px
+    color: $dark
+  &__adress
+    @extend %regular
+    margin-bottom: 20px
+    color: $dark
+    word-spacing: 0.4em
+
+.map
+  width: 604px
+  border: 2px solid $dark
