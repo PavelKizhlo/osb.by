@@ -1,0 +1,117 @@
+@import "../abstracts/variables"
+@import "../abstracts/mixins"
+@import "../abstracts/placeholders"
+
+.contacts
+  height: 100%
+  background-color: $page
+  &__title
+    @extend %extra-bold
+    margin: 0 0 40px
+    color: $dark
+    @include media-tablet
+      margin-bottom: 25px
+      font-size: 1.5rem
+    @include media-mobile
+      margin-bottom: 20px
+      padding-top: 5px
+      font-size: 1.5rem
+  &__content
+    display: flex
+    @include media-tablet
+      flex-direction: column
+      gap: 30px
+    @include media-mobile
+      flex-direction: column
+  &__map
+    margin-right: 150px
+    @include media-mobile
+      margin-right: 0
+      margin-bottom: 20px
+  &__subtitle
+    @extend %extra-bold
+    margin: 0 0 20px
+    color: $dark
+    @include media-tablet
+      font-size: 1.2rem
+    @include media-mobile
+      font-size: 1.2rem
+  &__adress
+    @extend %regular
+    margin-bottom: 20px
+    font-style: normal
+    color: $dark
+  &__link
+    @extend %regular
+    position: relative
+    display: block
+    color: $dark
+    text-decoration: none
+    &_phone
+      margin-bottom: 10px
+      padding-left: 25px
+      @include media-mobile
+        padding: 0 10px
+
+      &::before
+        position: absolute
+        left: 0
+        top: 3px
+        content: ''
+        display: block
+        width: 16px
+        height: 16px
+        background: url(../../../public/assets/icons/phone.svg) no-repeat center
+        @include media-mobile
+          display: none
+    &_mail
+      margin-bottom: 10px
+      padding-left: 25px
+      @include media-mobile
+        padding: 0 15px
+
+      &::before
+        position: absolute
+        left: 0
+        top: 4px
+        content: ''
+        display: block
+        width: 17px
+        height: 14px
+        background: url(../../../public/assets/icons/mail.svg) no-repeat center / cover
+        @include media-mobile
+          display: none
+    &_form
+      display: inline
+      color: $orange
+      text-decoration: underline
+  &__text
+    @extend %regular
+    position: relative
+    margin: 0
+    padding-left: 25px
+    color: $dark
+    @include media-mobile
+      padding: 0 10px
+
+    &::before
+      position: absolute
+      left: 0
+      top: 3px
+      content: ''
+      display: block
+      width: 20px
+      height: 20px
+      background: url(../../../public/assets/icons/form.svg) no-repeat center / cover
+      @include media-mobile
+        display: none
+
+.map
+  width: 604px
+  border: 2px solid $dark
+  @include media-mobile
+    display: none
+  &_mobile
+    display: none
+    @include media-mobile
+      display: block

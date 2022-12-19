@@ -1,0 +1,19 @@
+@import "../abstracts/variables"
+@import "../abstracts/mixins"
+
+.burger
+  display: none
+  @include media-mobile
+    display: flex
+    flex-direction: column
+    gap: 8px
+    padding: 10px
+    transform: rotateZ(0)
+    transition: 0.25s
+  &__line
+    display: block
+    width: 30px
+    height: 2px
+    background-color: $light
+  &_opend
+    transform: rotateZ(90deg)

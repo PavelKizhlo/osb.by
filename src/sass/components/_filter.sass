@@ -1,0 +1,151 @@
+@import "../abstracts/variables"
+@import "../abstracts/mixins"
+@import "../abstracts/placeholders"
+
+.filter
+	width: 270px
+	padding: 15px
+	border: 1px solid $dark-l
+	background-color: $light
+	@include media-tablet
+		width: 100%
+	@include media-mobile
+		display: none
+	&_mobile-active
+		@include media-mobile
+			position: fixed
+			z-index: 2000
+			top: 50%
+			left: 50%
+			display: block
+			border-radius: 5px
+			transform: translate(-50%, -50%)
+	&__field
+		margin: 0
+		padding: 0
+		border: none
+		@include media-mobile
+			text-align: left
+		&_material
+			margin-bottom: 20px
+			@include media-tablet
+				display: flex
+				gap: 30px
+			.filter__item
+				margin-bottom: 10px
+				&:first-of-type		
+					@include media-tablet
+						order: 1
+			input[type="checkbox"]
+				&:checked
+					&~label
+						&::after
+							display: block
+		&_thickness
+			.filter__item
+				height: 33px
+			input[type="checkbox"]
+				&:checked
+					&~label
+						background-color: $orange
+	&__title
+		@extend %bold
+		position: relative
+		font-size: 1.1rem
+		color: $dark
+		&::after
+			position: absolute
+			content: ''
+			display: block
+			width: 25px
+			height: 25px
+			@include media-tablet
+				width: 15px
+				height: 15px
+		&_material
+			margin-bottom: 10px
+			&::after
+				right: -115px
+				top: 0
+				background: url(../../../public/assets/icons/filter.svg) no-repeat center / contain
+				@include media-tablet
+					right: -30px
+					top: 4px
+		&_thickness
+			margin-bottom: 20px
+			&::after
+				right: -120px
+				top: 0
+				background: url(../../../public/assets/icons/thickness.svg) no-repeat center / contain
+				@include media-tablet
+					right: -39px
+					top: 5px
+	&__item
+		input[type="checkbox"]
+			display: none
+		input[type="radio"]
+			display: none
+	&__label
+		@extend %regular
+		position: relative
+		margin-bottom: 10px
+		padding: 0
+		font-size: 1.1rem
+		color: $dark
+		cursor: pointer
+		transition: all 0.3s ease
+		&_material
+			padding-left: 30px
+			&::before
+				position: absolute
+				left: 0
+				top: 0
+				content: ''
+				display: block
+				width: 20px
+				height: 20px
+				border: 1px solid $dark
+				border-radius: 2px
+			&::after
+				position: absolute
+				left: 3px
+				top: 3px
+				content: ''
+				display: none
+				width: 16px
+				height: 16px
+				background: url(../../../public/assets/icons/check.svg) no-repeat center
+		&_thickness
+			display: block
+			height: 100%
+			margin-bottom: 0
+			border: 1px solid $dark
+			border-radius: 2px
+			text-align: center
+			line-height: 33px
+			&:hover
+				border-color: $orange
+				transform: scale(1.05)
+				@include media-mobile
+					border-color: $dark
+					transform: none
+	&__group
+		display: grid
+		grid-template-columns: repeat(4, 1fr)
+		column-gap: 10px
+		row-gap: 10px
+		@include media-tablet
+			grid-template-columns: repeat(16, 1fr)
+		@include media-mobile
+			margin-bottom: 25px
+	.button
+		display: none
+		@include media-mobile
+			display: block
+			margin: 0 auto
+
+.material-hide
+	display: none
+
+.thick-hide
+	display: none

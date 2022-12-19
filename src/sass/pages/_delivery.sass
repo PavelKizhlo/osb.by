@@ -1,0 +1,126 @@
+@import "../abstracts/variables"
+@import "../abstracts/mixins"
+@import "../abstracts/placeholders"
+
+.delivery
+	height: 100%
+	background-color: $page
+	&__title
+		@extend %extra-bold
+		margin: 0 0 40px
+		color: $dark
+		@include media-tablet
+			font-size: 1.5rem
+			margin-bottom: 25px
+		@include media-mobile
+			margin-bottom: 20px
+			padding-top: 5px
+			font-size: 1.5rem
+	&__button-block
+		margin-bottom: 40px
+		@include media-tablet
+			margin-bottom: 25px
+		@include media-mobile
+			display: flex
+			gap: 15px
+			margin-bottom: 25px
+			padding: 0 15px
+		.button
+			margin-right: 10px
+			@include media-mobile
+				margin-right: 0
+	&__subtitle
+		@extend %extra-bold
+		margin: 0 0 40px
+		color: $dark
+		@include media-tablet
+			margin-bottom: 25px
+			font-size: 1.2rem
+		@include media-mobile
+			margin-bottom: 25px
+			font-size: 1.2rem
+	&__text
+		@extend %regular
+		margin: 0 0 60px
+		text-align: justify
+		text-indent: 30px
+		color: $dark
+		@include media-tablet
+			margin-bottom: 40px
+			font-size: 0.9rem
+		@include media-mobile
+			margin-bottom: 25px
+			padding: 0 10px
+			text-indent: 10px
+
+.steps
+	display: flex
+	justify-content: space-between
+	@include media-mobile
+		flex-direction: column
+	&__item
+		position: relative
+		display: flex
+		flex-direction: column
+		align-items: center
+		width: 30%
+		@include media-mobile
+			flex-direction: row
+			gap: 15px
+			justify-content: center
+			width: 100%
+			margin-bottom: 25px
+			padding: 0 10px
+		&::after
+			position: absolute
+			right: -192px
+			top: 50px
+			content: ''
+			display: block
+			width: 320px
+			height: 0
+			border: 1px dashed $dark-m
+			@include media-tablet
+				right: -100px
+				top: 35px
+				width: 165px
+			@include media-mobile
+				display: none
+		&:last-of-type
+			&::after
+				display: none
+	&__round
+		@extend %regular
+		display: flex
+		justify-content: center
+		align-items: center
+		width: 100px
+		height: 100px
+		border: 1px solid $orange
+		border-radius: 100%
+		margin-bottom: 40px
+		background-color: $light
+		box-shadow: 0 8px 10px $shadow
+		font-size: 2.5rem
+		color: $dark-m
+		@include media-tablet
+			width: 70px
+			height: 70px
+			font-size: 2rem
+		@include media-mobile
+			width: 70px
+			height: 70px
+			margin-bottom: 0
+			font-size: 2rem
+	&__text
+		@extend %regular
+		margin: 0
+		text-align: center
+		color: $dark
+		@include media-tablet
+			font-size: 0.9rem
+		@include media-mobile
+			width: 70%
+			font-size: 0.9rem
+	&__link
+		color: $orange

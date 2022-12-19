@@ -1,0 +1,363 @@
+@import "../abstracts/variables"
+@import "../abstracts/mixins"
+@import "../abstracts/placeholders"
+
+.container
+	width: 1265px
+	padding: 0 10px
+	margin: 0 auto
+	@include media-tablet
+		width: 753px
+	@include media-mobile
+		// width: 320px
+		width: 100vw
+		padding: 0
+		text-align: center
+
+.start-screen
+	background-color: $page
+	.container
+		background-image: url(../../../public/assets/images/start-screen.jpeg)
+		background-repeat: no-repeat
+		background-size: cover
+		@include media-mobile
+			padding-bottom: 80px
+			background-size: cover
+	&__content
+		width: 725px
+		padding-left: 50px
+		padding-bottom: 65px
+		@include media-tablet
+			text-align: center
+		@include media-mobile
+			width: 100%
+			padding: 0
+	&__title
+		@extend %extra-bold
+		margin: 0 0 45px
+		padding-top: 240px
+		color: $green
+		@include media-tablet
+			text-align: center
+		@include media-mobile
+			margin-bottom: 40px
+			padding: 70px 5px 10px
+			font-size: 1rem
+	&__wrapper
+		@include media-mobile
+			text-align: center
+	&__text
+		@extend %medium
+		margin: 0 0 30px
+		@include media-tablet
+			text-align: center
+		@include media-mobile
+			display: none
+	.button
+		width: 200px
+		@include media-mobile
+			width: 130px
+
+.popular-items
+	padding-top: 40px
+	background-color: $page
+	&__title
+		margin-bottom: 30px
+	&__outer-wrapper
+		position: relative
+		.button_popular-mobile
+			display: none
+			z-index: 1000
+			@include media-mobile
+				position: absolute
+				top: 42%
+				display: block
+				width: 40px
+				height: 40px
+			&-left
+				@include media-mobile
+					left: 20%
+					background: url(../../../public/assets/icons/arrow.svg) no-repeat center / contain
+					transform: rotateZ(180deg) translateX(170%)
+			&-right
+				@include media-mobile
+					right: 20%
+					background: url(../../../public/assets/icons/arrow.svg) no-repeat center / contain
+					transform: translateX(170%)
+		@include media-mobile
+			overflow: hidden
+			padding: 0 calc((100vw - 260px) / 2)
+			.button_popular-mobile-left
+				position: absolute
+				left: 20%
+				top: 42%
+				content: ''
+				display: block
+				width: 40px
+				height: 40px
+				background: url(../../../public/assets/icons/arrow.svg) no-repeat center / contain
+				transform: rotateZ(180deg) translateX(170%)
+	&__wrapper
+		display: flex
+		margin-bottom: 45px
+		justify-content: space-between
+		@include media-mobile
+			position: relative
+			width: max-content
+			align-items: stretch
+			gap: calc( 100vw - 260px )
+		.card
+			@include media-mobile
+				width: 260px
+	.catalog-button
+		display: block
+		width: 240px
+		margin: 0 auto
+
+.advantages
+	padding-top: 40px
+	background-color: $page
+	&__title
+		margin-bottom: 30px
+	&__wrapper
+		margin: 0
+		padding: 0 0 0 70px
+		list-style: none
+		@include media-mobile
+			padding-left: 0
+	&__item
+		&_opend
+			.advantages__subtitle
+				&::after
+					transform: rotate(135deg)
+					transition: all 0.3s ease
+		&_closed
+			.advantages__subtitle
+				&::after
+					transition: all 0.3s ease
+		&::after
+			content: ''
+			display: block
+			margin-bottom: 20px
+			width: 100%
+			height: 1px
+			background-color: $dark-m
+			opacity: 0.6
+		&:last-of-type
+			&::after
+				margin-bottom: 0
+	&__subtitle
+		@extend %bold
+		position: relative
+		margin: 0 0 20px
+		color: $dark
+		cursor: pointer
+		transition: all 0.3s ease
+		@include media-mobile
+			padding-bottom: 30px
+			font-size: 0.75rem
+		&:hover
+			padding-left: 30px
+			color: $orange
+			@include media-mobile
+				padding-left: 0
+				color: $dark
+		&::after
+			position: absolute
+			right: 0
+			top: 0
+			content: ''
+			display: block
+			width: 15px
+			height: 15px
+			background: url(../../../public/assets/icons/plus.svg) no-repeat center
+			@include media-mobile
+				display: none
+		&::before
+			position: absolute
+			left: -60px
+			top: -10px
+			content: ''
+			display: block
+			width: 40px
+			height: 40px
+			@include media-mobile
+				left: 50%
+				top: 20px
+				width: 30px
+				height: 30px
+				transform: translate(-50%)
+	&__text
+		@extend %regular
+		margin: 0 0 20px
+		text-align: justify
+		color: $dark-m
+		@include media-mobile
+			padding: 0 20px
+	&__link
+		text-decoration: none
+		color: $orange
+		&:hover
+			text-decoration-line: underline
+
+.sales
+	&::before
+		background: url(../../../public/assets/icons/cart.svg) no-repeat center / contain
+
+.delivery
+	&::before
+		background: url(../../../public/assets/icons/delivery.svg) no-repeat center / contain
+
+.saw-cut
+	&::before
+		background: url(../../../public/assets/icons/saw.svg) no-repeat center / contain
+
+.credit
+	&::before
+		background: url(../../../public/assets/icons/credit-card.svg) no-repeat center / contain
+
+.reviews
+	&::before
+		background: url(../../../public/assets/icons/good.svg) no-repeat center / contain
+
+.our-firm
+	padding-top: 40px
+	background-color: $page
+	&__title
+		margin-bottom: 30px
+	.slick
+		&-slider
+			position: relative
+			min-width: 0
+			padding: 0 160px
+			@include media-mobile
+				padding: 0 20px
+		&-list
+			overflow: hidden
+		&-track
+			display: flex
+			height: 600px
+			@include media-tablet
+				height: 280px
+			@include media-mobile
+				height: 50vw
+		&-slide
+			img
+				width: 100%
+				height: 100%
+				object-fit: cover
+		&-arrow
+			position: absolute
+			top: 50%
+			z-index: 10
+			width: 30px
+			height: 50px
+			margin-top: -30px
+			padding: 0
+			border: none
+			font-size: 0
+			@include media-tablet
+				height: 35px
+			@include media-mobile
+				display: none !important
+			&.slick-prev
+				left: 0
+				background: url('../../../public/assets/icons/arrow.svg') no-repeat center / cover
+				transform: rotate(180deg)
+			&.slick-next
+				right: 0
+				background: url('../../../public/assets/icons/arrow.svg') no-repeat center / cover
+		&-dots
+			display: flex
+			align-items: center
+			justify-content: center
+			padding: 0
+			list-style: none
+			li
+				margin: 0 10px
+			.slick-active button
+				background-color: $orange
+				border: 1px solid $orange
+			li button
+				width: 15px
+				height: 15px
+				padding: 0
+				background-color: transparent
+				border: 1px solid $orange
+				border-radius: 100%
+				font-size: 0
+				transition: all 0.3s ease
+				&:hover
+					border-width: 4px
+
+.questions
+	padding-top: 40px
+	background-color: $page
+	&__title
+		margin-bottom: 60px
+		@include media-tablet
+			margin-bottom: 40px
+		@include media-mobile
+			margin-bottom: 20px
+	&__form
+		position: relative
+		display: flex
+		flex-direction: column
+		align-items: end
+		width: 730px
+		margin: 0 auto
+		@include media-tablet
+			width: 440px
+		@include media-mobile
+			width: 80%
+			align-items: center
+		.input-wrapper
+			position: relative
+			width: 100%
+			input[type="text"]
+				margin-bottom: 10px
+			&::after
+				position: absolute
+				right: 0
+				top: 0
+				content: ''
+				display: block
+				width: 10px
+				height: 10px
+				background: url(../../../public/assets/icons/asterisk.svg) no-repeat center
+		&::before
+			position: absolute
+			left: -180px
+			top: -20px
+			content: ''
+			display: block
+			width: 133px
+			height: 164px
+			background: url(../../../public/assets/icons/question.svg) no-repeat center / contain
+			transition: all 0.3s ease
+			@include media-tablet
+				left: -130px
+				top: 50px
+				width: 100px
+				height: 100px
+			@include media-mobile
+				display: none
+		&:hover
+			&::before
+				transform: scale(1.04) rotate(-5deg)
+		input
+			@extend %regular
+			position: relative
+			display: block
+			width: 100%
+			height: 40px
+			margin-bottom: 10px
+			border: none
+			border-bottom: 1px solid $orange
+			background-color: $page
+			@include media-mobile
+				outline: none
+			&:last-of-type
+				margin-bottom: 30px
+				@include media-mobile
+					margin-bottom: 20px

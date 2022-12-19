@@ -1,0 +1,145 @@
+@import "../abstracts/variables"
+@import "../abstracts/mixins"
+@import "../abstracts/placeholders"
+
+.footer
+	padding: 30px 0
+	background-color: $green
+	@include media-mobile
+		padding: 20px 0
+	&__wrapper
+		display: flex
+		justify-content: space-between
+		@include media-mobile
+			flex-direction: column
+			gap: 20px
+	&__logo
+		display: block
+		margin-bottom: 45px
+		@include media-mobile
+			margin-bottom: 5px
+		.logo-image
+			@include media-mobile
+				margin: 0 auto
+	&__section
+		@include media-mobile
+			text-align: center
+		&:first-child
+			@include media-mobile
+				order: 1
+		&:nth-child(2),
+		&:nth-child(3)
+			@include media-mobile
+				display: none
+		.copyright
+			@extend %regular
+			padding-left: 10px
+			color: $light
+			@include media-tablet
+				font-size: 0.7rem
+			@include media-mobile
+				padding: 0
+				font-size: 0.7rem	
+		.goods
+			margin: 0
+			padding: 0
+			list-style: none
+			&__item
+				margin-bottom: 5px
+				&:last-of-type
+					margin-bottom: 0
+				.footer__link
+					position: relative
+					padding-left: 20px
+					@include media-mobile
+						padding-left: 0
+					&::before
+						position: absolute
+						left: 5px
+						top: 9px
+						content: ''
+						display: block
+						width: 8px
+						height: 8px
+						border-radius: 100%
+						background-color: $orange
+						@include media-mobile
+							display: none
+	&__menu
+		margin: 0
+		padding: 0
+		list-style: none
+		&-item
+			margin-bottom: 5px
+			&:last-of-type
+				margin-bottom: 0
+	&__link
+		@extend %regular
+		display: block
+		padding: 5px
+		font-size: 1rem
+		text-decoration: none
+		color: $light
+		transition: all 0.3s ease
+		@include media-tablet
+			font-size: 0.7rem
+		@include media-mobile
+			padding: 3px
+			text-align: center
+		&:hover
+			color: $orange
+	.contacts-link
+		position: relative
+		margin-bottom: 10px
+		padding-left: 30px
+		@include media-mobile
+			margin-bottom: 5px
+			padding-left: 0
+		&_main
+			padding-left: 5px
+			margin-bottom: 20px
+			@include media-mobile
+				margin-bottom: 3px
+				padding-left: 3px
+		&_map
+			&::before
+				position: absolute
+				left: 7px
+				top: 5px
+				content: ''
+				display: block
+				width: 14px
+				height: 20px
+				background: url(../../../public/assets/icons/pin.svg) no-repeat center
+				@include media-mobile
+					left: 50%
+					top: 3px
+					transform: translate(-800%)
+		&_phone
+			&::before
+				position: absolute
+				left: 7px
+				top: 7px
+				content: ''
+				display: block
+				width: 16px
+				height: 16px
+				background: url(../../../public/assets/icons/phone.svg) no-repeat center
+				@include media-mobile
+					left: 50%
+					top: 6px
+					transform: translate(-600%)
+		&_mail
+			&::before
+				position: absolute
+				left: 6px
+				top: 8px
+				content: ''
+				display: block
+				width: 16px
+				height: 16px
+				background: url(../../../public/assets/icons/mail.svg) no-repeat center
+				@include media-mobile
+					left: 50%
+					top: 6px
+					transform: translate(-480%)

@@ -1,0 +1,31 @@
+@import "variables"
+
+@mixin media-tablet
+	@media screen and (min-width: $tablet-width) and (max-width: $desktop-width - 1px)
+			@content
+
+@mixin media-mobile
+	@media screen and (max-width: $tablet-width - 1px)
+			@content
+
+// Typography mixins (placeholders don't available in media-queries)
+
+@mixin h3-mobile
+	font-family: $georgia
+	font-size: 25px
+	font-weight: 400
+	line-height: 32px
+	letter-spacing: 0.06em
+
+@mixin h5
+	font-family: $georgia
+	font-size: 15px
+	font-weight: 400
+	line-height: 17px
+	letter-spacing: 0.06em
+
+@mixin paragraph-mobile-menu
+	font-family: $arial
+	font-size: 32px
+	font-weight: 400
+	line-height: 51px

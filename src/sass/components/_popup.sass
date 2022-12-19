@@ -1,0 +1,146 @@
+@import "../abstracts/variables"
+@import "../abstracts/mixins"
+@import "../abstracts/placeholders"
+
+.popup
+  &_active
+    display: block
+  display: none
+  position: fixed
+  top: 50%
+  left: 50%
+  background-color: $page
+  border-radius: 4px
+  z-index: 1001
+  transform: translateX(-50%) translateY(-50%)
+  @include media-mobile
+    width: 95%
+  &__close
+    position: relative
+    left: 700px
+    top: 11px
+    background: url(../../../public/assets/icons/plus.svg) no-repeat center
+    display: block
+    border: none
+    width: 16px
+    height: 16px
+    transform: rotateZ(45deg)
+  .order
+    padding-top: 40px
+    background-color: $page
+    &__title
+      @extend %extra-bold
+      text-align: center
+      margin-bottom: 60px
+      color: $dark 
+      @include media-mobile
+        margin-bottom: 20px
+    &__form
+      label,
+      span
+        @extend %regular
+        color: #757575
+      position: relative
+      display: flex
+      flex-direction: column
+      align-items: end
+      width: 730px
+      margin: 0 auto
+      padding: 30px
+      @include media-mobile
+        align-items: center
+        width: 100%
+      .input-wrapper
+        position: relative
+        width: 100%
+        input[type="text"]
+          margin-bottom: 10px
+        &::after
+          position: absolute
+          right: 0
+          top: 0
+          content: ''
+          display: block
+          width: 10px
+          height: 10px
+          background: url(../../../public/assets/icons/asterisk.svg) no-repeat center
+      &:hover
+        &::before
+          transform: scale(1.04) rotate(-5deg)
+      input
+        @extend %regular
+        position: relative
+        display: block
+        width: 100%
+        height: 40px
+        margin-bottom: 10px
+        border: none
+        border-bottom: 1px solid $orange
+        background-color: $page
+        @include media-mobile
+          text-align: center
+          outline: none
+        &[type="number"]
+          width: 80px
+          margin: 0
+          padding-left: 35px
+          border: none
+          @include media-mobile
+            padding-left: 0
+        &[type="radio"]
+          display: none
+          &:checked
+            &~label
+              &::before
+                background-color: $orange
+    &__wrapper
+      display: flex
+      width: 100%
+      margin-bottom: 30px
+      justify-content: space-between
+      @include media-mobile
+        flex-direction: column
+    &__number
+      display: flex
+      align-items: center
+      border-bottom: 1px solid $orange
+      @include media-mobile
+        justify-content: center
+        margin-bottom: 17px
+    &__delivery
+      display: flex
+      gap: 15px
+      align-items: center
+      padding: 0
+      margin: 0
+      border-bottom: 1px solid $orange
+      @include media-mobile
+        flex-direction: column
+        align-items: center
+        border-bottom: none
+      &-label
+        position: relative
+        padding-left: 25px
+        cursor: pointer
+        &::before
+          position: absolute
+          left: -3px
+          top: -1px
+          content: ''
+          display: block
+          width: 20px
+          height: 20px
+          border: 1px solid $dark
+          border-radius: 100%
+  &-fade
+    &_active
+      display: block
+    display: none
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    z-index: 1000
+    background-color: #000000
+    opacity: 50%

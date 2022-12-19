@@ -1,0 +1,13 @@
+@import "../abstracts/mixins"
+
+.logo
+	transition: all 0.3s ease
+	&__image
+		width: 150px
+		@include media-tablet
+			width: 80px
+		@include media-mobile
+			width: 120px
+			margin: 0 auto
+	&:hover
+		transform: scale(1.05)

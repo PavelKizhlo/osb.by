@@ -1,0 +1,126 @@
+@import "../abstracts/variables"
+@import "../abstracts/mixins"
+@import "../abstracts/placeholders"
+
+.header
+	padding: 10px 0
+	background-color: $green
+	@include media-mobile
+		position: fixed
+		z-index: 2000
+		border-bottom: 1px solid #ffffff
+	.container
+		display: flex
+		align-items: center
+		@include media-tablet
+			justify-content: space-between
+		@include media-mobile
+			justify-content: space-between
+			padding: 0 15px
+	&__logo
+		margin-right: 30px
+		.logo__image
+			@include media-mobile
+				width: 70px
+		@include media-tablet
+			margin-right: 15px
+		@include media-mobile
+			margin-right: 0
+	&__mail
+		@extend %regular
+		position: relative
+		display: block
+		margin-right: 100px
+		padding: 10px 10px 10px 30px
+		text-decoration: none
+		color: $light
+		transition: all 0.3s ease
+		&:hover
+			color: $orange
+			@include media-mobile
+				color: $light
+		&::before
+			position: absolute
+			left: 7px
+			top: 13px
+			content: ''
+			display: block
+			width: 16px
+			height: 16px
+			background: url(../../../public/assets/icons/mail.svg) no-repeat center
+			@include media-tablet
+				width: 12px
+				height: 12px
+				top: 2px
+				left: 3px
+				background-size: contain
+		@include media-tablet
+			margin-right: 10px
+			padding: 0 0 0 20px
+			font-size: 0.7rem
+		@include media-mobile
+			position: absolute
+			left: 50%
+			margin: 0
+			border: 1px solid $light
+			border-radius: 5px
+			transform: translate(-50%, -150%)
+			transition: all 0.25s ease
+		&_mobile-active
+			@include media-mobile
+				transform: translate(-50%, 800%)
+	&__phone
+		@extend %regular
+		position: relative
+		display: block
+		padding: 10px 30px 10px 40px
+		border: 1px solid $light
+		border-radius: 5px
+		text-decoration: none
+		color: $light
+		transition: all 0.3s ease
+		&:hover
+			border-color: $orange
+			color: $orange
+			@include media-mobile
+				color: $light
+				border-color: $light
+		&::before
+			position: absolute
+			left: 17px
+			top: 12px
+			content: ''
+			display: block
+			width: 16px
+			height: 16px
+			background: url(../../../public/assets/icons/phone.svg) no-repeat center
+			@include media-tablet
+				width: 12px
+				height: 12px
+				top: 2px
+				left: 3px
+				background-size: contain
+		@include media-tablet
+			font-size: 0.7rem
+			border: none
+			padding: 0 0 0 20px
+		@include media-mobile
+			position: absolute
+			left: 50%
+			width: 220px
+			transform: translate(-50%, -150%)
+			transition: all 0.25s ease
+		&_mobile-active
+			@include media-mobile
+				transform: translate(-50%, 940%)
+		&_mobile
+			display: none
+			position: static
+			width: 140px
+			padding: 10px
+			font-size: 0.8rem
+			transform: translate(0%, 0%)
+			@include media-mobile
+				display: block
+			&::before
+				display: none

@@ -1,0 +1,32 @@
+@import "../abstracts/variables"
+@import "../abstracts/mixins"
+@import "../abstracts/placeholders"
+
+.button
+	display: inline-block
+	padding: 11px
+	border: none
+	border-radius: 5px
+	text-decoration: none
+	text-align: center
+	transition: all 0.3s ease
+	@include media-tablet
+		padding: 7px
+		font-size: 0.8rem
+	&:hover
+		transform: scale(1.05)
+	&:disabled
+		opacity: 0.4
+	&_primary
+		@extend %regular
+		background-color: $green
+		border: 1px solid $green
+		color: $light
+	&_secondary
+		@extend %bold
+		background-color: $orange
+		color: $dark
+	&_inactive
+		@extend %regular
+		background-color: $light
+		border: 1px solid $dark
