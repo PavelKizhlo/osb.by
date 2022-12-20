@@ -4,6 +4,7 @@ const express = require('express');
 const morgan = require('morgan');
 const chalk = require('chalk');
 const userRoutes = require('./routes/user-routes');
+const adminRoutes = require('./routes/admin-routes');
 
 const errorMsg = chalk.bgWhite.redBright;
 const successMsg = chalk.bgWhite.greenBright;
@@ -28,3 +29,4 @@ app.use(
 app.use('/public', express.static(PUBLIC_DIR));
 
 app.use(userRoutes);
+app.use(adminRoutes);
