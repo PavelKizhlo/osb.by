@@ -4,23 +4,23 @@ const createPath = require('../helpers/create-path');
 const router = express.Router();
 
 router.get(['/', '/home', '/index'], (req, res) => {
-  res.sendFile(createPath('index'));
+  res.render(createPath('index.ejs'));
 });
 
 router.get('/catalog', (req, res) => {
-  res.sendFile(createPath('catalog'));
+  res.render(createPath('catalog.ejs'));
 });
 
 router.get('/about', (req, res) => {
-  res.sendFile(createPath('about'));
+  res.render(createPath('about.ejs'));
 });
 
 router.get('/delivery', (req, res) => {
-  res.sendFile(createPath('delivery'));
+  res.render(createPath('delivery.ejs'));
 });
 
 router.get('/contacts', (req, res) => {
-  res.sendFile(createPath('contacts'));
+  res.render(createPath('contacts.ejs'));
 });
 
 module.exports = router;

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <%- include('./partials/head') %>
+
+  <body class="page">
+    <%- include('./partials/header', {page: 'delivery'}) %>
+
+    <main class="page__main">
+      <%- include('./partials/breadcrumbs', {crumbs: [{name: 'Доставка и оплата', link: '#'}]}) %>
+
+      <section class="delivery">
+        <div class="container">
+          <h1 class="delivery__title">Доставка и оплата</h1>
+          <div class="delivery__button-block">
+            <button class="button button_primary" id="individual">Физическим лицам</button>
+            <button class="button button_inactive" id="entity">Юридическим лицам</button>
+          </div>
+          <div class="delivery__content">
+            <h2 class="delivery__subtitle delivery__subtitle_individual">По Минску</h2>
+            <p class="delivery__text delivery__text_individual">
+              Просим вас уточнить возможные дополнительные нюансы, вроде подъёма на этаж или разгрузки механизированным
+              способом так как это может повлиять на стоимость или комплектацию заказа.
+            </p>
+            <h2 class="delivery__subtitle delivery__subtitle_entity visually-hidden">По Беларуси</h2>
+            <p class="delivery__text delivery__text_entity visually-hidden">
+              При подтверждении заказа не забудьте пожалуйста согласовать с менеджером способ разгрузки товара, а так же
+              уточните пожалуйста повторно различия фактического и юридического адреса доставки, если такие имеются.
+            </p>
+            <div class="steps">
+              <div class="steps__item">
+                <div class="steps__round">1</div>
+                <p class="steps__text">
+                  Оформляете заявку в <a href="/#questions-form" class="steps__link">форме</a> на нашем сайте.
+                  Укажите адрес электронной почты для обратной связи. Либо заявку можно оформить по телефону:
+                  <a href="tel:+375296510025" class="steps__link">+375 (29) 651 00 25</a>
+                </p>
+              </div>
+              <div class="steps__item">
+                <div class="steps__round">2</div>
+                <p class="steps__text">Менеджер оформляет заказ, вы согласовываете порядок доставки и оплаты с ним.</p>
+              </div>
+              <div class="steps__item">
+                <div class="steps__round">3</div>
+                <p class="steps__text">Получаете изделие выбранным вами способом</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+
+    <div class="popup-fade"></div>
+
+    <script src="../public/js/script.js"></script>
+  </body>
+</html>

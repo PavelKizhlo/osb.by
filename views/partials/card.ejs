@@ -1,0 +1,14 @@
+<div class="card" data-thickness="thickness<%= card.thick %>" data-material="<%= card.material %>">
+    <img src="../public/assets/images/cards/<%= card.img %>" alt="<%= card.alt %>" class="card__image" />
+    <h3 class="card__title"><%= card.title %></h3>
+    <ul class="card__spec">
+        <% card.spec.forEach(item => { %>
+            <li class="card__spec-item"><%= item %></li>
+        <% }); %>
+    </ul>
+    <% card.prices.forEach(price => { %>
+        <b class="card__price"><%= price %></b>
+    <% }); %>
+
+    <button class="button button_primary button_order">Заказать</button>
+</div>

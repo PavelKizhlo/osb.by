@@ -28,7 +28,7 @@ router.get('/admin-panel', (req, res) => {
 });
 
 router.get('/admin-panel/login', (req, res) => {
-  res.sendFile(createPath('admin-views/login-form'));
+  res.sendFile(createPath('admin-views/login-form.html'));
 });
 
 router.post('/login', (req, res) => {
@@ -54,7 +54,7 @@ router.all('/admin-panel/*', requireAuth, (req, res, next) => {
 });
 
 router.get('/admin-panel/dashboard', (req, res) => {
-  res.sendFile(createPath('admin-views/dashboard'));
+  res.sendFile(createPath('admin-views/dashboard.html'));
 });
 
 module.exports = router;

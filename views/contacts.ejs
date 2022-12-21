@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <%- include('./partials/head') %>
+
+  <body class="page">
+    <%- include('./partials/header', {page: 'contacts'}) %>
+
+    <main class="page__main">
+      <%- include('./partials/breadcrumbs', {crumbs: [{name: 'Контакты', link: '#'}]}) %>
+
+      <section class="contacts">
+        <div class="container">
+          <h1 class="contacts__title">Контакты</h1>
+          <div class="contacts__content">
+            <div class="contacts__map">
+              <h2 class="contacts__subtitle">Адрес склада:</h2>
+              <address class="contacts__adress">г.Минск ул.Скорины д.15</address>
+              <div class="map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1016.302319623293!2d27.663048829278615!3d53.928271788395776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9ca0ebe4fd362382!2zNTPCsDU1JzQxLjgiTiAyN8KwMzknNDkuMCJF!5e1!3m2!1sru!2sby!4v1659087865263!5m2!1sru!2sby"
+                  width="600"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <div class="map_mobile">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1016.302319623293!2d27.663048829278615!3d53.928271788395776!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x9ca0ebe4fd362382!2zNTPCsDU1JzQxLjgiTiAyN8KwMzknNDkuMCJF!5e1!3m2!1sru!2sby!4v1659087865263!5m2!1sru!2sby"
+                  width="300"
+                  height="450"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+            </div>
+            <div class="contacts__tel">
+              <h2 class="contacts__subtitle">С нами можно связаться:</h2>
+              <a href="tel:+375296510025" class="contacts__link contacts__link_phone">+375 (29) 651 00 25</a>
+              <a href="mailto:mail@osb.by" class="contacts__link contacts__link_mail">mail@osb.by</a>
+              <p class="contacts__text">
+                Также, вы можете заполнить<a href="/#questions-form" class="contacts__link contacts__link_form"> форму обратной связи</a><br />
+                и мы свяжемся с вами в ближайшее время!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <%- include('./partials/footer') %>
+
+    <div class="popup-fade"></div>
+
+    <script src="../public/js/script.js"></script>
+  </body>
+</html>

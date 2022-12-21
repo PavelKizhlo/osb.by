@@ -14,6 +14,8 @@ const app = express();
 
 const PUBLIC_DIR = path.resolve(__dirname, 'public');
 
+app.set('view engine', 'ejs');
+
 app.listen(process.env.PORT, (err) => {
   err
     ? console.log(errorMsg(err.message))
