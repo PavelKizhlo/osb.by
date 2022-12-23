@@ -1,0 +1,26 @@
+.widget
+  position: fixed
+  top: 80%
+  right: 3%
+  display: none
+  flex-direction: column
+  gap: 10px
+  z-index: 1000
+  padding: 7px
+  border-radius: 8px
+  background-color: rgba(120, 107, 107, .09)
+  &__link
+    display: block
+    width: 50px
+    height: 50px
+    background-size: contain
+    background-position: center
+    background-repeat: no-repeat
+    transition: all 0.3s ease
+    &_viber
+      background-image: url('../../../public/assets/icons/viber.svg')
+    &_tg
+      background-image: url('../../../public/assets/icons/telegram.svg')
+    &:hover
+      transform: scale(1.15)
+

@@ -10,8 +10,10 @@ import {
 import { toggleDeliveryButtons } from './delivery';
 import { toggleAboutButtons, toggleOurProducts } from './about';
 import { handleForm } from './forms';
+import { showWidgets } from './widgets';
 
 menuHandler();
+showWidgets();
 
 switch (window.location.pathname) {
   case '/':
