@@ -149,15 +149,19 @@
       <section class="questions">
         <div class="container">
           <h2 class="questions__title section-title">Хотите оставить заявку или нужна консультация?</h2>
-          <form class="questions__form" action="https://formspree.io/f/mbjbjnzr" method="POST" id="questions-form">
+          <form class="questions__form" id="questions-form">
             <div class="input-wrapper">
-              <input class="questions__name" type="text" name="name" placeholder="Ваше имя" required />
+              <label style="display: none" for="questions-name">Ваше имя:</label>
+              <input class="questions__name" id="questions-name" type="text" name="name" placeholder="Ваше имя" required />
             </div>
             <div class="input-wrapper">
-              <input class="questions__phone" type="text" name="phone" placeholder="Ваш телефон" required />
+              <label style="display: none" for="questions-phone">Ваш телефон:</label>
+              <input class="questions__phone" id="questions-phone" type="text" name="phone" placeholder="Ваш телефон" required />
             </div>
-            <input class="questions__mail" type="email" name="email" placeholder="Ваш e-mail" />
-            <input class="questions__text" type="text" name="message" placeholder="Сообщение " />
+            <label style="display: none" for="questions-mail">Ваше email:</label>
+            <input class="questions__mail" id="questions-mail" type="email" name="email" placeholder="Ваш e-mail" />
+            <label style="display: none" for="questions-text">Ваше сообщение:</label>
+            <input class="questions__text" id="questions-text" type="text" name="message" placeholder="Сообщение " />
             <button class="button button_secondary" type="submit">Отправить</button>
           </form>
         </div>
@@ -172,6 +176,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../public/js/script.js"></script>
   </body>
 </html>

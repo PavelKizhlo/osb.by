@@ -1,15 +1,19 @@
 <div class="popup">
     <button class="popup__close"></button>
     <h2 class="order__title">Оставить заявку</h2>
-    <form class="order__form" action="https://formspree.io/f/mjvzvnak" method="POST" id="order-form">
+    <form class="order__form" id="order-form">
         <div class="input-wrapper">
-            <input class="order__name" type="text" name="name" placeholder="Ваше имя" required />
+            <label style="display: none" for="order-name">Ваше имя:</label>
+            <input class="order__name" type="text" name="name" id="order-name" placeholder="Ваше имя" required />
         </div>
         <div class="input-wrapper">
-            <input class="order__phone" type="text" name="phone" placeholder="Ваш телефон" required />
+            <label style="display: none" for="order-phone">Ваше телефон:</label>
+            <input class="order__phone" type="text" name="phone" id="order-phone" placeholder="Ваш телефон" required />
         </div>
-        <input class="order__mail" type="email" name="email" placeholder="Ваш e-mail" />
-        <input type="text" name="material" />
+        <label style="display: none" for="order-mail">Ваше email:</label>
+        <input class="order__mail" type="email" name="email" id="order-mail" placeholder="Ваш e-mail" />
+        <label style="display: none" for="order-mat">Товар:</label>
+        <input type="text" id="order-mat" name="material" />
         <div class="order__wrapper">
             <div class="order__number">
                 <label for="sheets">Количество листов:</label>
@@ -18,11 +22,11 @@
             <div class="order__delivery">
                 <span>Способ получения:</span>
                 <div class="order__delivery-item">
-                    <input type="radio" id="self-deliv" name="delivery" checked />
+                    <input type="radio" id="self-deliv" name="delivery" value="Самовывоз" checked />
                     <label class="order__delivery-label" for="self-deliv">Самовывоз</label>
                 </div>
                 <div class="order__delivery-item">
-                    <input type="radio" id="our-deliv" name="delivery" />
+                    <input type="radio" id="our-deliv" name="delivery" value="Доставка" />
                     <label class="order__delivery-label" for="our-deliv">Доставка</label>
                 </div>
             </div>

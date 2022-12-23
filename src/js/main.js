@@ -1,6 +1,6 @@
 import { menuHandler } from './burger';
 import { showAdvantages, slidePopularItems } from './home';
-import { closePopup, showPopup } from './popup';
+import { handlePopup } from './popup';
 import {
   closeMobileFilter,
   materialsFilter,
@@ -9,15 +9,17 @@ import {
 } from './catalog';
 import { toggleDeliveryButtons } from './delivery';
 import { toggleAboutButtons, toggleOurProducts } from './about';
+import { handleForm } from './forms';
 
 menuHandler();
 
 switch (window.location.pathname) {
   case '/':
     showAdvantages();
-    showPopup();
-    closePopup();
+    handlePopup();
     slidePopularItems();
+    handleForm('questions-form');
+    handleForm('order-form');
 
     $(document).ready(function () {
       $('.slider').slick({
@@ -33,10 +35,10 @@ switch (window.location.pathname) {
   case '/catalog':
     materialsFilter();
     thicknessFilter();
-    showPopup();
-    closePopup();
+    handlePopup();
     showMobileFilter();
     closeMobileFilter();
+    handleForm('order-form');
     break;
   case '/delivery':
     toggleDeliveryButtons();
