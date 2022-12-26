@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const morgan = require('morgan');
 const chalk = require('chalk');
+const db = require('./db/db');
 const userRoutes = require('./routes/user-routes');
 const adminRoutes = require('./routes/admin-routes');
 const apiRoutes = require('./routes/api-routes');
@@ -11,9 +12,9 @@ const errorMsg = chalk.bgWhite.redBright;
 const successMsg = chalk.bgWhite.greenBright;
 const logMsg = chalk.cyanBright;
 
-const app = express();
+db.connect();
 
-const PUBLIC_DIR = path.resolve(__dirname, 'public');
+const app = express();
 
 app.set('view engine', 'ejs');
 
@@ -29,7 +30,7 @@ app.use(
   ),
 );
 
-app.use('/public', express.static(PUBLIC_DIR));
+app.use('/public', express.static(path.resolve(__dirname, 'public')));
 
 app.use(userRoutes);
 app.use(adminRoutes);
