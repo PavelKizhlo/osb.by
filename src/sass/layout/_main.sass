@@ -5,6 +5,8 @@
   display: grid
   height: 100vh
   grid-template-rows: auto 1fr auto
+  @include media-mobile
+    grid-template-rows: auto max-content
   &__main
     padding-bottom: 100px
     background-color: $page

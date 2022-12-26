@@ -7,6 +7,7 @@ const db = require('./db/db');
 const userRoutes = require('./routes/user-routes');
 const adminRoutes = require('./routes/admin-routes');
 const apiRoutes = require('./routes/api-routes');
+const { get404 } = require('./controllers/user-controller');
 
 const errorMsg = chalk.bgWhite.redBright;
 const successMsg = chalk.bgWhite.greenBright;
@@ -35,3 +36,5 @@ app.use('/public', express.static(path.resolve(__dirname, 'public')));
 app.use(userRoutes);
 app.use(adminRoutes);
 app.use(apiRoutes);
+
+app.get('*', get404);

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<%- include('./partials/head', {head}) %>
+
+<body class="page">
+<%- include('./partials/header', {page: '404'}) %>
+
+<main class="page__main">
+    <div class="container error-wrapper">
+        <h2>Ошибка 404</h2>
+        <h3>К сожалению, такой страницы не существует!</h3>
+        <a href="/" class="err-link">Вернуться на главную</a>
+    </div>
+</main>
+
+<%- include('./partials/footer') %>
+
+<div class="popup-fade"></div>
+
+<script src="../public/js/script.js"></script>
+</body>
+</html>
