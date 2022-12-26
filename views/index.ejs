@@ -29,57 +29,11 @@
             <button class="button button_popular-mobile button_popular-mobile-left" disabled></button>
             <button class="button button_popular-mobile button_popular-mobile-right"></button>
             <div class="popular-items__wrapper">
-              <div class="card" data-thickness="thickness3" data-material="fanera">
-                <img src="../public/assets/images/cards/fanera3-4mm.jpeg" alt="лист фанеры" class="card__image" />
-                <h3 class="card__title">Фанера ФК</h3>
-                <ul class="card__spec">
-                  <li class="card__spec-item">Толщина 3 мм</li>
-                  <li class="card__spec-item">Клееная берёзовая</li>
-                  <li class="card__spec-item">Размер листа: 1525 * 1525</li>
-                </ul>
-                <b class="card__price"
-                  >20 -30 руб. / лист <br />
-                  (в зависимости от сорта)</b
-                >
-                <button class="button button_primary button_order">Заказать</button>
-              </div>
-              <div class="card" data-thickness="thickness6" data-material="fanera">
-                <img src="../public/assets/images/cards/fanera6-9mm.jpeg" alt="лист фанеры" class="card__image" />
-                <h3 class="card__title">Фанера ФК</h3>
-                <ul class="card__spec">
-                  <li class="card__spec-item">Толщина 6 мм</li>
-                  <li class="card__spec-item">Клееная берёзовая</li>
-                  <li class="card__spec-item">Размер листа: 1525 * 1525</li>
-                </ul>
-                <b class="card__price"
-                  >26 - 40 руб. / лист <br />
-                  (в зависимости от сорта)</b
-                >
-                <button class="button button_primary button_order">Заказать</button>
-              </div>
-              <div class="card" data-thickness="thickness9" data-material="fanera">
-                <img src="../public/assets/images/cards/fanera6-9mm.jpeg" alt="лист фанеры" class="card__image" />
-                <h3 class="card__title">Фанера ФК</h3>
-                <ul class="card__spec">
-                  <li class="card__spec-item">Толщина 9 мм</li>
-                  <li class="card__spec-item">Клееная берёзовая</li>
-                  <li class="card__spec-item">Размер листа: 1525 * 1525</li>
-                </ul>
-                <b class="card__price">35 - 40 руб. / лист <br />
-                  (в зависимости от сорта)</b>
-                <button class="button button_primary button_order">Заказать</button>
-              </div>
-              <div class="card" data-thickness="thickness12" data-material="dsp">
-                <img src="../public/assets/images/cards/dsp12mm.jpeg" alt="лист ДСП" class="card__image" />
-                <h3 class="card__title">ДСП (Древесно-стружечная плита)</h3>
-                <ul class="card__spec">
-                  <li class="card__spec-item">Толщина 12 мм</li>
-                  <li class="card__spec-item">Листы большого формата</li>
-                  <li class="card__spec-item">Размер листа: 2750 * 1830</li>
-                </ul>
-                <b class="card__price">Цену уточняйте</b>
-                <button class="button button_primary button_order">Заказать</button>
-              </div>
+
+              <% cards.forEach(card => { %>
+                <%- include('./partials/card', {card})%>
+              <% }); %>
+
             </div>
           </div>
           <a href="catalog" class="button button_secondary catalog-button">Перейти а каталог</a>
@@ -139,7 +93,7 @@
         <div class="container">
           <h2 class="our-firm__title section-title">Наши товары</h2>
           <div class="slider">
-            <% ['dvp2-slide.jpeg', 'dvp-slide.jpeg', 'fanera-slide.jpeg', 'osb-slide.jpeg'].forEach(img => { %>
+            <% slides.forEach(img => { %>
               <%- include('partials/slider-item', {img}) %>
             <% }); %>
           </div>
@@ -175,8 +129,8 @@
     <div class="popup-fade"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../public/js/script.js"></script>
   </body>
 </html>
