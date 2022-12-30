@@ -6,9 +6,12 @@ const handleError = (err, res) => {
   res.status(500).render(createPath('500.ejs'));
 };
 
+const getHead = async (page) =>
+  await db.query(`SELECT * FROM head WHERE page = '${page}'`);
+
 const getHomePage = async (req, res) => {
   try {
-    const head = await db.query('SELECT * FROM head WHERE page = "index"');
+    const head = await getHead('index');
     const cards = await db.query('SELECT * FROM card WHERE is_popular = 1');
     const slides = await db
       .query('SELECT * FROM slider')
@@ -21,7 +24,7 @@ const getHomePage = async (req, res) => {
 
 const getCatalogPage = async (req, res) => {
   try {
-    const head = await db.query('SELECT * FROM head WHERE page = "catalog"');
+    const head = await getHead('catalog');
     const cards = await db.query('SELECT * FROM card');
     const thickness = await db
       .query('SELECT DISTINCT thickness FROM card ORDER BY thickness ASC')
@@ -34,7 +37,7 @@ const getCatalogPage = async (req, res) => {
 
 const getDeliveryPage = async (req, res) => {
   try {
-    const head = await db.query('SELECT * FROM head WHERE page = "delivery"');
+    const head = await getHead('delivery');
     res.render(createPath('delivery.ejs'), { head: head[0] });
   } catch (err) {
     handleError(err, res);
@@ -43,7 +46,7 @@ const getDeliveryPage = async (req, res) => {
 
 const getAboutPage = async (req, res) => {
   try {
-    const head = await db.query('SELECT * FROM head WHERE page = "about"');
+    const head = await getHead('about');
     res.render(createPath('about.ejs'), { head: head[0] });
   } catch (err) {
     handleError(err, res);
@@ -52,7 +55,7 @@ const getAboutPage = async (req, res) => {
 
 const getContactsPage = async (req, res) => {
   try {
-    const head = await db.query('SELECT * FROM head WHERE page = "contacts"');
+    const head = await getHead('contacts');
     res.render(createPath('contacts.ejs'), { head: head[0] });
   } catch (err) {
     handleError(err, res);
@@ -61,7 +64,7 @@ const getContactsPage = async (req, res) => {
 
 const get404 = async (req, res) => {
   try {
-    const head = await db.query('SELECT * FROM head WHERE page = "404"');
+    const head = await getHead('404');
     res.render(createPath('404.ejs'), { head: head[0] });
   } catch (err) {
     handleError(err, res);

@@ -8,7 +8,9 @@ const {
   getLoginForm,
   login,
   logout,
-  getDashboard,
+  getSEOList,
+  getSliderList,
+  getCardList,
 } = require('../controllers/admin-controller');
 
 const router = express.Router();
@@ -33,6 +35,8 @@ router.get('/logout', logout);
 router.all('/admin-panel/*', requireAuth, (req, res, next) => {
   next();
 });
-router.get('/admin-panel/dashboard', getDashboard);
+router.get('/admin-panel/seo-list', getSEOList);
+router.get('/admin-panel/slider-list', getSliderList);
+router.get('/admin-panel/card-list', getCardList);
 
 module.exports = router;
