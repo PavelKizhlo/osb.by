@@ -2,7 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const sessions = require('express-session');
 const cookieParser = require('cookie-parser');
+const multer = require('multer');
 const requireAuth = require('../helpers/requireAuth');
+const fileFilter = require('../helpers/fileFilter');
 const {
   getAdminPanel,
   getLoginForm,
@@ -11,9 +13,22 @@ const {
   getSEOList,
   getSliderList,
   getCardList,
+  deleteSlide,
+  addSlide,
 } = require('../controllers/admin-controller');
 
 const router = express.Router();
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/assets/images/slides');
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const upload = multer({ storage, fileFilter });
 
 const oneDay = 1000 * 60 * 60 * 24;
 
@@ -28,15 +43,28 @@ router.use(
 router.use(cookieParser());
 router.use(express.urlencoded({ extended: true }));
 
+// Login form
 router.get('/admin-panel', getAdminPanel);
 router.get('/admin-panel/login', getLoginForm);
+
+// Login / Logout
 router.post('/login', login);
 router.get('/logout', logout);
+
+// Auth check
 router.all('/admin-panel/*', requireAuth, (req, res, next) => {
   next();
 });
+
+// SEO
 router.get('/admin-panel/seo-list', getSEOList);
+
+// Slides
 router.get('/admin-panel/slider-list', getSliderList);
+router.post('/admin-panel/slider-list', upload.single('recfile'), addSlide);
+router.delete('/admin-panel/slider-list/:id', deleteSlide);
+
+// Cards
 router.get('/admin-panel/card-list', getCardList);
 
 module.exports = router;

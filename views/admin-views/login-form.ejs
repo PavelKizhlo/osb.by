@@ -46,11 +46,16 @@
           background-color: #f3c650;
           color: #535353;
           font-weight: bold;
+          font-size: 0.8rem;
           text-transform: uppercase;
+          text-decoration: none;
           cursor: pointer;
       }
       .button:hover {
           transform: scale(1.05);
+      }
+      .back-link {
+        margin-right: 1rem;
       }
   </style>
 </head>
@@ -61,6 +66,7 @@
     <form class="form" method="post" action="/login">
       <input name="admin" type="text" placeholder="Имя администратора" required>
       <input name="password" type="password" placeholder="Пароль" required>
+      <a class="button back-link" href="/">На сайт</a>
       <button class="button" type="submit">Войти</button>
     </form>
   </div>
