@@ -15,6 +15,8 @@ const {
   getCardList,
   deleteSlide,
   addSlide,
+  getSEOEditor,
+  updateSEOPage,
 } = require('../controllers/admin-controller');
 
 const router = express.Router();
@@ -42,6 +44,7 @@ router.use(
 );
 router.use(cookieParser());
 router.use(express.urlencoded({ extended: true }));
+router.use(express.json());
 
 // Login form
 router.get('/admin-panel', getAdminPanel);
@@ -58,6 +61,8 @@ router.all('/admin-panel/*', requireAuth, (req, res, next) => {
 
 // SEO
 router.get('/admin-panel/seo-list', getSEOList);
+router.get('/admin-panel/seo-list/edit/:page', getSEOEditor);
+router.put('/admin-panel/seo-list/edit/:page', updateSEOPage);
 
 // Slides
 router.get('/admin-panel/slider-list', getSliderList);

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<%- include('./partials/admin-head') %>
+
+<body>
+    <div class="position-relative bg-white d-flex p-0">
+
+        <%- include('./partials/sidebar', {page: ''}) %>
+
+        <!-- Content Start -->
+        <div class="content">
+
+            <%- include('./partials/navbar', {title: `Редактировать страницу "${head.page}"`}) %>
+
+            <div class="container-xxl pt-4 px-4">
+                <form class="bg-light rounded h-100 p-4" id="edit-page-head">
+                    <h6 class="mb-3">Title</h6>
+                    <p>Заголовок страницы. Отображается в названии вкладки. Играет одну из самых важных ролей в поисковой оптимизации.
+                    Значение по умолчанию: "osb.by - ДСП, ДВП, OSB, фанера"</p>
+                    <div class="form-floating mb-4">
+                        <textarea class="form-control text-danger" name="title"
+                                  id="floatingTextarea" style="height: 150px;"><%= head.title %></textarea>
+                        <label for="floatingTextarea">title</label>
+                    </div>
+
+                    <h6 class="mb-3">Keywords</h6>
+                    <p>Ключевые слова. Не стоит указывать более 10. Должны присутствовать в тексте страницы. Вводить через запятую и пробел.
+                       Значение по умолчанию: "Фанера, ДСП, ДВП, OSB, ОСП, Минск, заказать, купить, дерево, стройматериалы"</p>
+                    <div class="form-floating mb-4">
+                        <textarea class="form-control text-danger" name="keywords"
+                                  id="floatingTextarea" style="height: 150px;"><%= head.keywords %></textarea>
+                        <label for="floatingTextarea">keywords</label>
+                    </div>
+
+                    <h6 class="mb-3">Description</h6>
+                    <p>Описание контента. Обычно выводится в кратком описании страницы в поисковой выдаче google.<br/>
+                        Рекомендуемая длина: 100 - 170 символов.
+                       Значение по умолчанию: "Заказ и покупка фанеры, ДСП, ДВП, OSB, ОСП"</p>
+                    <div class="form-floating mb-4">
+                        <textarea class="form-control text-danger" name="desc"
+                                  id="floatingTextarea" style="height: 150px;"><%= head.description %></textarea>
+                        <label for="floatingTextarea">description</label>
+                    </div>
+
+                    <h6 class="mb-3">Подключаемые скрипты</h6>
+                    <p>Яндекс-метрика, Google analytics и т.д. - это всё сюда. <br/>
+                    Нужно просто скопировать и вставить код в поле. Скрипты будут находиться перед закрывающим тэгом &lt/head&gt <br/>
+                    Если в скрипте есть одинарные кавычки, обязательно заменить их на двойные, иначе он не будет сохранён.</p>
+                    <div class="form-floating mb-4">
+                        <textarea class="form-control text-danger" name="scripts"
+                                  id="floatingTextarea" style="height: 150px;"><%= head.analytics %></textarea>
+                        <label for="floatingTextarea">скрипты</label>
+                    </div>
+
+                    <div class="d-flex justify-content-center gap-4">
+                        <button  type="submit" class="btn btn-success">Сохранить</button>
+                        <a href="/admin-panel/seo-list" class="btn btn-warning">Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Content End -->
+
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/js/admin/main.js"></script>
+</body>
+
+</html>
