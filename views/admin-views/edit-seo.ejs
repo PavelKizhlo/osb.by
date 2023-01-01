@@ -20,8 +20,8 @@
                     Значение по умолчанию: "osb.by - ДСП, ДВП, OSB, фанера"</p>
                     <div class="form-floating mb-4">
                         <textarea class="form-control text-danger" name="title"
-                                  id="floatingTextarea" style="height: 150px;"><%= head.title %></textarea>
-                        <label for="floatingTextarea">title</label>
+                                  id="floatingTextarea1" style="height: 150px;"><%= head.title %></textarea>
+                        <label for="floatingTextarea1">title</label>
                     </div>
 
                     <h6 class="mb-3">Keywords</h6>
@@ -29,8 +29,8 @@
                        Значение по умолчанию: "Фанера, ДСП, ДВП, OSB, ОСП, Минск, заказать, купить, дерево, стройматериалы"</p>
                     <div class="form-floating mb-4">
                         <textarea class="form-control text-danger" name="keywords"
-                                  id="floatingTextarea" style="height: 150px;"><%= head.keywords %></textarea>
-                        <label for="floatingTextarea">keywords</label>
+                                  id="floatingTextarea2" style="height: 150px;"><%= head.keywords %></textarea>
+                        <label for="floatingTextarea2">keywords</label>
                     </div>
 
                     <h6 class="mb-3">Description</h6>
@@ -39,8 +39,8 @@
                        Значение по умолчанию: "Заказ и покупка фанеры, ДСП, ДВП, OSB, ОСП"</p>
                     <div class="form-floating mb-4">
                         <textarea class="form-control text-danger" name="desc"
-                                  id="floatingTextarea" style="height: 150px;"><%= head.description %></textarea>
-                        <label for="floatingTextarea">description</label>
+                                  id="floatingTextarea3" style="height: 150px;"><%= head.description %></textarea>
+                        <label for="floatingTextarea3">description</label>
                     </div>
 
                     <h6 class="mb-3">Подключаемые скрипты</h6>
@@ -49,8 +49,8 @@
                     Если в скрипте есть одинарные кавычки, обязательно заменить их на двойные, иначе он не будет сохранён.</p>
                     <div class="form-floating mb-4">
                         <textarea class="form-control text-danger" name="scripts"
-                                  id="floatingTextarea" style="height: 150px;"><%= head.analytics %></textarea>
-                        <label for="floatingTextarea">скрипты</label>
+                                  id="floatingTextarea3" style="height: 150px;"><%= head.analytics %></textarea>
+                        <label for="floatingTextarea3">скрипты</label>
                     </div>
 
                     <div class="d-flex justify-content-center gap-4">
@@ -67,7 +67,23 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="/public/js/admin/main.js"></script>
+    <%- include('./partials/sidebar-toggle') %>
+    <script>
+      const form = document.getElementById('edit-page-head');
+      form.addEventListener('submit', async (evt) => {
+        evt.preventDefault();
+        const o = {};
+        new FormData(form).forEach((value, key) => o[key] = value);
+        const res = await fetch(window.location.href, {
+          method: 'PUT',
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify(o)
+        })
+        window.location.href = res.url;
+      })
+    </script>
 </body>
 
 </html>

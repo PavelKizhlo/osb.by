@@ -59,7 +59,50 @@
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="../../public/js/admin/main.js"></script>
+  <%- include('./partials/sidebar-toggle') %>
+  <script>
+    const deleteSlides = async (evt) => {
+      const slideToDelete = evt.target?.dataset?.delete || null;
+      if(slideToDelete) {
+        const res = await Swal.fire({
+          title: 'Хотите удалить это изображение?',
+          text: "Оно будет безвозвратно удалено!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'Отмена',
+          confirmButtonText: 'Удалить!'
+        })
+
+        if (res.isConfirmed) {
+          await Swal.fire(
+                  'Удалено!',
+                  'Изображение удалено из слайдера',
+                  'success'
+          );
+          await fetch(`/admin-panel/slider-list/${slideToDelete}`, {
+            method: 'DELETE',
+          })
+          window.location.reload()
+        }
+      }
+    }
+
+    const disableSubmit = () => {
+      const btn = document.getElementById('submit-btn');
+      const input = document.getElementById('formFile');
+      btn.disabled = true;
+      input.addEventListener('change', () => {
+        if(input.value) {
+          btn.disabled = false;
+        }
+      })
+    }
+
+    document.addEventListener('click', deleteSlides);
+    disableSubmit();
+  </script>
 </body>
 
 </html>
