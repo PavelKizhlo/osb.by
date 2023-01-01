@@ -1,82 +1,40 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-<head>
-  <meta charset="utf-8">
-  <title>OSB.by | Админка</title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="noindex, nofollow" name="robots">
-
-  <!-- Google Web Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Icon Font Stylesheet -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-  <!-- Customized Bootstrap Stylesheet -->
-  <link href="../../public/styles/admin/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Template Stylesheet -->
-  <link href="../../public/styles/admin/style.css" rel="stylesheet">
-</head>
+<%- include('./partials/admin-head') %>
 
 <body>
-<div class="position-relative bg-white d-flex p-0">
+  <div class="position-relative bg-white d-flex p-0">
 
-  <!-- Sidebar Start -->
-  <div class="sidebar pe-4 pb-3">
-    <nav class="navbar bg-light navbar-light">
-      <a href="#" class="navbar-brand mx-4 mb-3">
-        <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>OSB Admin</h3>
-      </a>
+    <%- include('./partials/sidebar', {page: 'cards'}) %>
 
-      <div class="navbar-nav w-100">
-        <a href="/admin-panel/seo-list" class="nav-item nav-link"><i class="fa fa-th me-2"></i>SEO</a>
-        <a href="/admin-panel/slider-list" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Слайдер</a>
-        <a href="/admin-panel/card-list" class="nav-item nav-link active"><i class="far fa-file-alt me-2"></i>Карточки</a>
-      </div>
-    </nav>
-  </div>
-  <!-- Sidebar End -->
+    <!-- Content Start -->
+    <div class="content">
 
+      <%- include('./partials/navbar', {title: 'Карточки товаров'}) %>
 
-  <!-- Content Start -->
-  <div class="content">
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand justify-content-between bg-light navbar-light sticky-top px-4 py-2">
-      <a href="#" class="sidebar-toggler flex-shrink-0">
-        <i class="fa fa-bars"></i>
-      </a>
-      <h3 class="text-primary">Карточки товаров</h3>
-      <a  href="/logout" class="btn btn-outline-danger m-2">Выйти</a>
-    </nav>
-    <!-- Navbar End -->
+      <div class="container-fluid p-4">
+        <div class="text-center mb-5 display-6">
+          <a href=""><i class="fa fa-plus-circle"></i> Добавить новую карточку</a>
+        </div>
 
-    <div class="container-fluid p-4">
-      <div class="text-center mb-5 display-6">
-        <a href=""><i class="fa fa-plus-circle"></i> Добавить новую карточку</a>
+        <div class="row gap-4 justify-content-center">
+          <% cards.forEach(card => { %>
+            <%- include('./partials/admin-card', {card}) %>
+          <% }); %>
+        </div>
       </div>
 
-      <div class="row gap-4 justify-content-center">
-        <% cards.forEach(card => { %>
-          <%- include('./partials/admin-card', {card}) %>
-        <% }); %>
-      </div>
+
     </div>
-
+    <!-- Content End -->
 
   </div>
-  <!-- Content End -->
 
-</div>
-
-<!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../../public/js/admin/main.js"></script>
+  <!-- JavaScript Libraries -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../public/js/admin/main.js"></script>
 </body>
 
 </html>

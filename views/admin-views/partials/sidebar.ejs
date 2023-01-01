@@ -1,0 +1,21 @@
+<div class="sidebar pe-4 pb-3">
+    <nav class="navbar bg-light navbar-light">
+        <a href="#" class="navbar-brand mx-4 mb-3">
+            <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>OSB Admin</h3>
+        </a>
+
+        <div class="navbar-nav w-100">
+            <a href="/admin-panel/seo-list" class="nav-item nav-link <%= page === 'seo' ? 'active' : '' %>">
+                <i class="fa fa-th me-2"></i>
+            SEO</a>
+
+            <a href="/admin-panel/slider-list" class="nav-item nav-link <%= page === 'slider' ? 'active' : '' %>">
+                <i class="fa fa-table me-2"></i>
+            Слайдер</a>
+
+            <a href="/admin-panel/card-list" class="nav-item nav-link <%= page === 'cards' ? 'active' : '' %>">
+                <i class="far fa-file-alt me-2"></i>
+            Карточки</a>
+        </div>
+    </nav>
+</div>
