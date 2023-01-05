@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<%- include('./partials/admin-head') %>
+
+<body>
+    <div class="position-relative bg-white d-flex p-0">
+
+        <%- include('./partials/sidebar', {page: ''}) %>
+
+        <!-- Content Start -->
+        <div class="content">
+
+            <%- include('./partials/navbar', {title: pageTitle}) %>
+
+            <div class="container-xxl pt-4 px-4">
+                <form class="bg-light rounded h-100 p-4" id="edit-card" enctype="multipart/form-data">
+                    <div class="bg-light rounded h-100 mb-4">
+                        <h6 class="mb-4">Выбор изображения</h6>
+                        <p>Хранятся в папке 'public/assets/images/cards'</p>
+                        <div class="accordion accordion-flush mb-4" id="accordionFlushExample">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header border" id="flush-headingOne">
+                                    <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#flush-collapseOne"
+                                            aria-expanded="false" aria-controls="flush-collapseOne">
+                                        Выбрать из имеющихся
+                                    </button>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                     aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body row gy-3">
+                                        <% images.forEach((img, i) => { %>
+                                            <%- include('./partials/select-img-item', {img, i, card}) %>
+                                        <% }); %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <label for="formFile" class="form-label d-block text-start">
+                            Рекомендуемое соотношение сторон - 1:1. <br/>
+                            Формат - .jpeg или .png <br/>
+                            Размер - около 600 * 600 <br/>
+                            Название должно отличаться от существующих, иначе файл будет перезаписан.
+                        </label>
+                        <input class="form-control mb-4" type="file" id="file-input" name="card-img-file">
+                    </div>
+
+                    <h6 class="mb-3">Материал</h6>
+                    <p>Для работы фильтров в каталоге.</p>
+                    <select class="form-select form-select-lg mb-4 text-danger" aria-label=".form-select-lg example" name="material">
+                        <option value="fanera" <%= !card ? 'selected' : card.material === 'fanera' ? 'selected' : '' %>>fanera</option>
+                        <option value="osb" <%= !card ? '' : card.material === 'osb' ? 'selected' : '' %>>osb</option>
+                        <option value="dsp" <%= !card ? '' : card.material === 'dsp' ? 'selected' : '' %>>dsp</option>
+                        <option value="dvp" <%= !card ? '' : card.material === 'dvp' ? 'selected' : '' %>>dvp</option>
+                    </select>
+
+                    <h6 class="mb-3">Толщина</h6>
+                    <p>Для работы фильтров в каталоге и форм.</p>
+                    <div class="form-floating mb-4">
+                        <input type="number" class="form-control text-danger" name="thickness" id="floatingInput" min="1"
+                               placeholder="Толщина" value="<%= card ? card.thickness : '' %>">
+                        <label for="floatingInput">Толщина</label>
+                    </div>
+
+                    <h6 class="mb-3">Добавить на главную страницу</h6>
+                    <p>Должно быть 4 товара.</p>
+                    <div class="form-check mb-4">
+                        <input type="checkbox" class="form-check-input" name="is_popular" id="floatingInput2"
+                            <%= (!card?.is_popular && popularItems >= 4) ? 'disabled' : '' %>
+                            <%= !card ? '' : card?.is_popular ? 'checked' : '' %>>
+                        <label class="form-check-label" for="floatingInput2">Популярный товар</label>
+                    </div>
+
+                    <h6 class="mb-3">Название</h6>
+                    <p>Название товара (заголовок)</p>
+                    <div class="form-floating mb-4">
+                        <input type="text" class="form-control text-danger" name="title" id="floatingInput3"
+                               placeholder="Товар" value="<%= card ? card.title : '' %>">
+                        <label for="floatingInput3">Товар</label>
+                    </div>
+
+                    <h6 class="mb-3">Полное описание</h6>
+                    <p>Отображается при переходе на страницу товара.</p>
+                    <div class="form-floating mb-4">
+                        <textarea class="form-control text-danger" name="full_desc" placeholder="Описание"
+                                  id="floatingTextarea" style="height: 150px;"><%= card ? card.full_desc : '' %></textarea>
+                        <label for="floatingTextarea">Описание</label>
+                    </div>
+
+                    <h6 class="mb-3">Основные характеристики</h6>
+                    <p>Отображаются в виде списка под заголовком карточки. <br/>
+                    Добавлять 2 - 5 пунктов. Один пункт отделяется от другого с помощью символа ";" и пробела, без переноса строки.</p>
+                    <div class="form-floating mb-4">
+                        <textarea class="form-control text-danger" name="spec" placeholder="Характеристики"
+                                  id="floatingTextarea2" style="height: 150px;"><%= card ? card.spec : '' %></textarea>
+                        <label for="floatingTextarea2">Характеристики</label>
+                    </div>
+
+                    <h6 class="mb-3">Цена</h6>
+                    <p>Цена товара. Может быть несколько для одной карточки.<br/>
+                       Каждая запись имеет отступ. Если он не нужен, перенос строки можно вставить с помощь тэга &ltbr /&gt</p>
+                    <div class="form-floating mb-4">
+                        <textarea class="form-control text-danger" name="price" placeholder="Цена"
+                                  id="floatingTextarea2" style="height: 100px;"><%= card ? card.price : '' %></textarea>
+                        <label for="floatingTextarea2">Цена</label>
+                    </div>
+
+                    <div class="d-flex justify-content-center gap-4">
+                        <button  type="submit" class="btn btn-success">Сохранить</button>
+                        <a href="/admin-panel/card-list" class="btn btn-warning">Отмена</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Content End -->
+
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <%- include('./partials/sidebar-toggle') %>
+    <script>
+        const preventTwoImages = () => {
+          const radios = document.querySelectorAll('input[name="img_src"]');
+          const file = document.getElementById('file-input');
+          file.addEventListener('change', () => {
+            if(file.value) {
+              radios.forEach(btn => btn.checked = false);
+            }
+          })
+          document.addEventListener('click', (evt) => {
+            if(evt.target.type === 'radio') {
+              file.value = '';
+            }
+          })
+        }
+
+        const form = document.getElementById('edit-card');
+        form.addEventListener('submit', async (evt) => {
+          evt.preventDefault();
+          const method = window.location.pathname === '/admin-panel/card-list/new' ? 'POST' : 'PUT';
+          const formData = new FormData(form);
+          const res = await fetch(window.location.href, {
+            method,
+            body: formData,
+          })
+          window.location.href = res.url;
+        })
+
+        preventTwoImages();
+    </script>
+</body>
+
+</html>

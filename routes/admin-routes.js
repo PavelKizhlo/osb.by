@@ -15,13 +15,18 @@ const {
   getCardList,
   deleteSlide,
   addSlide,
-  getSEOEditor,
-  updateSEOPage,
+  editSEO,
+  updateSEO,
+  addCard,
+  createCard,
+  editCard,
+  updateCard,
+  deleteCard,
 } = require('../controllers/admin-controller');
 
 const router = express.Router();
 
-const storage = multer.diskStorage({
+const slideStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, 'public/assets/images/slides');
   },
@@ -30,7 +35,17 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage, fileFilter });
+const cardImgStorage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/assets/images/cards');
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname);
+  },
+});
+
+const slideUpload = multer({ storage: slideStorage, fileFilter });
+const cardImgUpload = multer({ storage: cardImgStorage, fileFilter });
 
 const oneDay = 1000 * 60 * 60 * 24;
 
@@ -61,15 +76,32 @@ router.all('/admin-panel/*', requireAuth, (req, res, next) => {
 
 // SEO
 router.get('/admin-panel/seo-list', getSEOList);
-router.get('/admin-panel/seo-list/edit/:page', getSEOEditor);
-router.put('/admin-panel/seo-list/edit/:page', updateSEOPage);
+router.get('/admin-panel/seo-list/:page', editSEO);
+router.put('/admin-panel/seo-list/:page', updateSEO);
 
 // Slides
 router.get('/admin-panel/slider-list', getSliderList);
-router.post('/admin-panel/slider-list', upload.single('recfile'), addSlide);
+router.post(
+  '/admin-panel/slider-list',
+  slideUpload.single('recfile'),
+  addSlide,
+);
 router.delete('/admin-panel/slider-list/:id', deleteSlide);
 
 // Cards
 router.get('/admin-panel/card-list', getCardList);
+router.get('/admin-panel/card-list/new', createCard);
+router.post(
+  '/admin-panel/card-list/new',
+  cardImgUpload.single('card-img-file'),
+  addCard,
+);
+router.get('/admin-panel/card-list/:id', editCard);
+router.put(
+  '/admin-panel/card-list/:id',
+  cardImgUpload.single('card-img-file'),
+  updateCard,
+);
+router.delete('/admin-panel/card-list/:id', deleteCard);
 
 module.exports = router;

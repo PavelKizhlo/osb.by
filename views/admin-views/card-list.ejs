@@ -15,7 +15,7 @@
 
       <div class="container-fluid p-4">
         <div class="text-center mb-5 display-6">
-          <a href=""><i class="fa fa-plus-circle"></i> Добавить новую карточку</a>
+          <a href="/admin-panel/card-list/new"><i class="fa fa-plus-circle"></i> Добавить новую карточку</a>
         </div>
 
         <div class="row gap-4 justify-content-center">
@@ -34,7 +34,39 @@
   <!-- JavaScript Libraries -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../../public/js/admin/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <%- include('./partials/sidebar-toggle') %>
+  <script>
+    const deleteCard = async (evt) => {
+      const cardToDelete = evt.target?.dataset?.delete || null;
+      console.log(cardToDelete)
+      if(cardToDelete) {
+        const res = await Swal.fire({
+          title: 'Хотите удалить эту карточку?',
+          text: "Она будет безвозвратно удалена!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          cancelButtonText: 'Отмена',
+          confirmButtonText: 'Удалить!'
+        })
+
+        if (res.isConfirmed) {
+          await Swal.fire(
+                  'Удалено!',
+                  'Карточка удалена из каталога',
+                  'success'
+          );
+          await fetch(`/admin-panel/card-list/${cardToDelete}`, {
+            method: 'DELETE',
+          })
+          window.location.reload()
+        }
+      }
+    }
+    document.addEventListener('click', deleteCard);
+  </script>
 </body>
 
 </html>

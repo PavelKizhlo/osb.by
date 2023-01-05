@@ -1,0 +1,8 @@
+<div class="d-flex flex-column align-items-center gap-3 col-md-4 col-sm-6 col-12">
+    <img src="/public/assets/images/cards/<%= img.img_src %>" width="200">
+    <div>
+        <input class="form-check-input" type="radio" name="img_src"
+               id="imgRadio<%= i %>" value="<%= img.img_src %>" <%= card?.img_src === img.img_src ? 'checked' : '' %>>
+        <label class="form-check-label" for="imgRadio<%= i %>"><%= img.img_src %></label>
+    </div>
+</div>
