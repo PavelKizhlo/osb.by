@@ -1,4 +1,4 @@
-<div class="card" data-thickness="thickness<%= card.thickness %>" data-material="<%= card.material %>">
+<a href="/catalog/<%= card.id %>" class="card" data-thickness="thickness<%= card.thickness %>" data-material="<%= card.material %>">
     <img src="../public/assets/images/cards/<%= card.img_src %>" alt="<%= card.title %>" class="card__image" />
     <h3 class="card__title"><%= card.title %></h3>
     <ul class="card__spec">
@@ -10,5 +10,5 @@
         <b class="card__price"><%- price %></b>
     <% }); %>
 
-    <button class="button button_primary button_order">Заказать</button>
-</div>
+    <button class="button button_primary">К товару</button>
+</a>

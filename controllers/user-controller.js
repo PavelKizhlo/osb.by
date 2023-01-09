@@ -62,6 +62,17 @@ const getContactsPage = async (req, res) => {
   }
 };
 
+const getProductPage = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const head = await getHead('product');
+    const cards = await db.query(`SELECT * FROM card WHERE id='${id}'`);
+    res.render(createPath('product.ejs'), { head: head[0], card: cards[0] });
+  } catch (err) {
+    handleError(err, res);
+  }
+};
+
 const get404 = async (req, res) => {
   try {
     const head = await getHead('404');
@@ -77,5 +88,6 @@ module.exports = {
   getDeliveryPage,
   getAboutPage,
   getContactsPage,
+  getProductPage,
   get404,
 };

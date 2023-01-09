@@ -17,11 +17,11 @@ showWidgets();
 
 switch (window.location.pathname) {
   case '/':
+  case '/index':
+  case '/home':
     showAdvantages();
-    handlePopup();
     slidePopularItems();
     handleForm('questions-form');
-    handleForm('order-form');
 
     $(document).ready(function () {
       $('.slider').slick({
@@ -37,10 +37,8 @@ switch (window.location.pathname) {
   case '/catalog':
     materialsFilter();
     thicknessFilter();
-    handlePopup();
     showMobileFilter();
     closeMobileFilter();
-    handleForm('order-form');
     break;
   case '/delivery':
     toggleDeliveryButtons();
@@ -49,6 +47,10 @@ switch (window.location.pathname) {
     toggleAboutButtons();
     toggleOurProducts();
     break;
+  case '/contacts':
+    break;
   default:
+    handlePopup();
+    handleForm('order-form');
     break;
 }

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<%- include('./partials/head', {head}) %>
+
+<body class="page">
+<%- include('./partials/header', {page: ''}) %>
+
+<main class="page__main">
+    <%- include('./partials/breadcrumbs', {crumbs: [{name: 'Каталог', link: '/catalog'}, {name: card.title, link: `/catalog/${card.id}`}]}) %>
+
+    <section class="product">
+        <div class="container">
+            <a href="/catalog" class="product__back-link">Вернуться в каталог</a>
+            <div class="product__wrapper">
+                <img class="product__img" src="../public/assets/images/cards/<%= card.img_src %>" alt="<%= card.title %>">
+                <div class="product__info">
+                    <h3 class="section-title product__title"><%= card.title %></h3>
+                    <ul class="card__spec">
+                        <% card.spec.split('; ').forEach(item => { %>
+                            <li class="card__spec-item product__spec"><%= item %></li>
+                        <% }); %>
+                    </ul>
+
+                    <p class="product__description"><%= card.full_desc %></p>
+
+                    <% card.price.split('; ').forEach(price => { %>
+                        <b class="card__price product__price"><%- price %></b>
+                    <% }); %>
+
+                    <button class="button button_secondary button_order">Оформить заказ</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<%- include('./partials/footer') %>
+
+<%- include('./partials/popup') %>
+
+<div class="popup-fade"></div>
+
+<script src="../public/js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>

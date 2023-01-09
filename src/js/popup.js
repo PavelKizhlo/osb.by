@@ -16,8 +16,8 @@ function showPopup(card) {
   popup.classList.add('popup_active');
   fade.classList.add('popup-fade_active');
   document.body.style.overflow = 'hidden';
-  const title = card.querySelector('.card__title');
-  const thickness = card.querySelector('.card__spec-item');
+  const title = card.querySelector('.product__title');
+  const thickness = card.querySelector('.product__spec');
   const materialInput = popup.querySelector('input[name="material"]');
   materialInput.value = `${title.innerHTML} ${thickness.innerHTML}`;
 

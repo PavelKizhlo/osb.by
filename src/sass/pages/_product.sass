@@ -1,0 +1,48 @@
+@import "../abstracts/variables"
+@import "../abstracts/mixins"
+@import "../abstracts/placeholders"
+
+
+.product
+  &__back-link
+    display: none
+    @include media-mobile
+      display: block
+      padding-left: 2rem
+      padding-top: 15px
+      text-align: start
+      text-decoration: none
+      color: $dark-m
+  &__wrapper
+    display: flex
+    align-items: flex-start
+    @include media-mobile
+      flex-direction: column
+      align-items: center
+      padding-bottom: 15px
+  &__img
+    width: 600px
+    margin-right: 3rem
+    @include media-tablet
+      width: 345px
+      margin-right: 2rem
+    @include media-mobile
+      width: 100%
+      margin-right: 0
+      padding: 2rem
+  &__title
+    margin-bottom: 15px
+  &__spec
+    font-size: 1rem
+    @include media-tablet
+      text-align: start
+  &__description
+    @extend %regular
+    color: $dark
+    margin: 0 0 15px
+    @include media-mobile
+      padding: 0 15px
+  &__price
+    padding-left: 0
+    @include media-tablet
+      text-align: start
