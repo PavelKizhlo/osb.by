@@ -4,9 +4,12 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
+    "prod": "npm run build:src && npm run start",
     "start": "node ./app.js",
-    "dev": "nodemon ./app.js",
-    "build:src": "webpack --config ./webpack.config.js"
+    "serve": "nodemon ./app.js",
+    "dev": "parallelshell 'npm run serve' 'npm run watch:all'",
+    "build:src": "webpack --config ./webpack.config.js",
+    "watch:all": "onchange './src/**/*' -- npm run build:src"
   },
   "repository": {
     "type": "git",
@@ -24,6 +27,8 @@
     "css-loader": "^6.7.3",
     "mini-css-extract-plugin": "^2.7.2",
     "nodemon": "^2.0.20",
+    "onchange": "^7.1.0",
+    "parallelshell": "^3.0.1",
     "prettier": "^2.8.1",
     "resolve-url-loader": "^5.0.0",
     "sass": "^1.57.0",
