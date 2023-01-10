@@ -35,12 +35,14 @@ function showMsg(isSuccess) {
       icon: 'success',
       title: 'Отправлено!',
       text: 'Мы скоро с вами свяжемся!',
+      heightAuto: false,
     });
   } else {
     Swal.fire({
       icon: 'error',
       title: 'Не удалось отправить форму',
       text: 'Что-то пошло не так...',
+      heightAuto: false,
     });
   }
 }

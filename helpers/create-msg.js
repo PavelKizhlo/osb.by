@@ -1,6 +1,4 @@
 const createMsg = (reqBody) => {
-  console.log(reqBody);
-
   const fields =
     'material' in reqBody
       ? [
