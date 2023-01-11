@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const sessions = require('express-session');
+const MemoryStore = require('memorystore')(sessions);
 const cookieParser = require('cookie-parser');
 const multer = require('multer');
 const requireAuth = require('../helpers/requireAuth');
@@ -55,6 +56,10 @@ router.use(
     saveUninitialized: true,
     resave: false,
     cookie: { maxAge: oneDay },
+    store: new MemoryStore({
+      checkPeriod: oneDay,
+    }),
+    secure: true,
   }),
 );
 router.use(cookieParser());
